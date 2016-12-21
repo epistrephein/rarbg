@@ -1,4 +1,5 @@
 # RARBG
+[![Gem Version](https://badge.fury.io/rb/rarbg.svg)](https://badge.fury.io/rb/rarbg) [![Code Climate](https://codeclimate.com/github/epistrephein/rarbg/badges/gpa.svg)](https://codeclimate.com/github/epistrephein/rarbg)
 
 A ruby wrapper for RARBG torrentapi.
 
@@ -10,7 +11,7 @@ gem install rarbg
 
 ## Usage
 
-This gem exposes all API methods available from torrentapi which are documented [here](https://torrentapi.org/apidocs_v2.txt).
+This gem wraps all API methods available from torrentapi which are documented [here](https://torrentapi.org/apidocs_v2.txt).
 
 Authentication token is automatically generated on first request, stored with timestamp and renewed every 800 seconds.
 

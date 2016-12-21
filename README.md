@@ -16,7 +16,7 @@ Authentication token is automatically generated on first request, stored with ti
 
 #### Getting started
 
-First, require the gem and initialize a new `RARBG::API` object.
+Require the gem and initialize a new `RARBG::API` object.
 
 ```ruby
 require 'rarbg'
@@ -25,7 +25,7 @@ rarbg = RARBG::API.new
 
 #### Parameters
 
-All API calls are performed with parameters defined in `@default_params` unless you override them within a single call. Therefore, if you want all API calls to always query for a specific parameter, you can customize the `@default_params` variable.
+All API calls are performed with parameters defined in `@default_params` unless you override them within a single call. Therefore, if you want all API calls to always pass a specific parameter, you can customize the `@default_params` variable.
 
 ```ruby
 rarbg.default_params
@@ -99,7 +99,7 @@ Any request error, will raise either `Faraday::Error` and its subclasses at low 
 
 ## Contributing
 
-Contributions are welcome and encouraged. Feel free to open an issue or fork the repo and submit a pull request.
+Contributions are welcome and encouraged. Feel free to open an issue or submit a pull request.
 
 ## License
 [MIT License](https://github.com/epistrephein/rarbg/blob/master/LICENSE)

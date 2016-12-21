@@ -35,6 +35,9 @@ rarbg.default_params
 rarbg.default_params['limit'] = 100
 rarbg.default_params['sort'] = 'seeders'
 rarbg.default_params['min_seeders'] = 10
+
+rarbg.default_params
+# => {"limit"=>100, "sort"=>"seeders", "format"=>"json_extended", "min_seeders"=>10}
 ```
 
 Default parameters can also be set at initialization time.
@@ -69,7 +72,7 @@ rarbg.search_themoviedb(140607)
 rarbg.search_tvdb(81189)
 ```
 
-Note: `tt` can be omitted when passing an IMDB id as it will be automatically prepended if missing. 
+Note that `tt` can be omitted when passing an IMDB id as it will be automatically prepended if missing. 
 
 Parameters can be passed to any call, and will override defaults if conflicting.
 
@@ -94,6 +97,9 @@ rarbg.list
 
 rarbg.search_string('thisisdefinitelyawrongquery')
 # RARBG::APIError: No results found
+
+rarbg.search_string('Force Awakens', 'min_seeders' => 'notanumber')
+# RARBG::APIError: Invalid value for min_seeders
 ```
 
 Any request error, will raise either `Faraday::Error` and its subclasses at low level or `RARBG::RequestError` with request error message at higher level.

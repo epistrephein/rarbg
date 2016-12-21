@@ -1,5 +1,5 @@
 # RARBG
-[![Gem Version](https://badge.fury.io/rb/rarbg.svg)](https://badge.fury.io/rb/rarbg) [![Code Climate](https://codeclimate.com/github/epistrephein/rarbg/badges/gpa.svg)](https://codeclimate.com/github/epistrephein/rarbg)
+[![Gem Version](https://badge.fury.io/rb/rarbg.svg)](https://badge.fury.io/rb/rarbg) [![Code Climate](https://codeclimate.com/github/epistrephein/rarbg/badges/gpa.svg)](https://codeclimate.com/github/epistrephein/rarbg) [![Dependency Status](https://gemnasium.com/epistrephein/rarbg.svg)](https://gemnasium.com/epistrephein/rarbg)
 
 A ruby wrapper for RARBG torrentapi.
 

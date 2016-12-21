@@ -4,7 +4,7 @@ require 'json'
 require 'time'
 
 module RARBG
-  VERSION = '0.1.1'.freeze
+  VERSION = '0.1.2'.freeze
   APP_ID = 'rarbg-rubygem'.freeze
   API_ENDPOINT = 'https://torrentapi.org/pubapi_v2.php'.freeze
   TOKEN_EXPIRATION = 800
@@ -81,6 +81,7 @@ module RARBG
       end
       raise RequestError, res.reason_phrase unless res.success?
       raise APIError, res.body['error'] if res.body['error']
+      sleep 2
 
       @token_time = Time.now
       @token = res.body['token']

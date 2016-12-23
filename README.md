@@ -77,11 +77,11 @@ Note that `tt` can be omitted when passing an IMDB id as it will be automaticall
 Parameters can be passed to any call, and will override defaults if conflicting.
 
 ```ruby
-rarbg.search_string('Force Awakens', 'limit' => 100, 'min_seeders' => 30)
+rarbg.search_string('Force Awakens', 'limit' => 100, 'min_seeders' => 30, 'category' => 42)
 
 rarbg.search_imdb(
   2488496,
-  'category' => 44,
+  'category' => 44;45,
   'sort' => 'seeders',
   'ranked' => 0,
   'format' => 'json'

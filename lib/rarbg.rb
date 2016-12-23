@@ -58,10 +58,12 @@ module RARBG
       check_token
 
       res = request.get do |req|
-        req.params['token'] = @token
         req.params.merge!(@default_params)
         req.params.merge!(custom_params)
         req.params.merge!(method_params)
+
+        req.params['app_id'] = APP_ID
+        req.params['token'] = @token
       end
       raise RequestError, res.reason_phrase unless res.success?
       raise APIError, res.body['error'] if res.body['error']
@@ -93,7 +95,6 @@ module RARBG
         faraday.adapter  Faraday.default_adapter
         faraday.request  :url_encoded
         faraday.response :json
-        faraday.params['app_id'] = APP_ID
       end
     end
   end

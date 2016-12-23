@@ -81,7 +81,7 @@ rarbg.search_string('Force Awakens', 'limit' => 100, 'min_seeders' => 30, 'categ
 
 rarbg.search_imdb(
   2488496,
-  'category' => 44;45,
+  'category' => '44;45',
   'sort' => 'seeders',
   'ranked' => 0,
   'format' => 'json'

@@ -3,6 +3,7 @@ require 'faraday_middleware'
 require 'json'
 require 'time'
 
+# A ruby wrapper for RARBG torrentapi.
 module RARBG
   VERSION = '0.1.3'.freeze
   APP_ID = 'rarbg-rubygem'.freeze
@@ -22,6 +23,7 @@ module RARBG
     # Any API call passes +default_params+ unless overidden.
     attr_accessor :default_params
 
+    # Returns a new API object with +@default_params+ defined in +params+.
     def initialize(params = {})
       @default_params = {
         'limit'  => 25,
@@ -32,18 +34,23 @@ module RARBG
 
     # Lists all torrents.
     # Accepts query parameters from +params+.
+    # Returns an array of hashes.
     def list(params = {})
       call({ 'mode' => 'list' }, params)
     end
 
     # Searches torrents by literal name from +string+.
     # Accepts query parameters from +params+.
+    # Returns an array of hashes of matching elements.
+    # Raises APIError if no results are found.
     def search_string(string, params = {})
       call({ 'mode' => 'search', 'search_string' => string }, params)
     end
 
     # Searches by IMDb ID from +imdbid+.
     # Accepts query parameters from +params+.
+    # Returns an array of hashes of matching elements.
+    # Raises APIError if no results are found.
     def search_imdb(imdbid, params = {})
       imdbid = "tt#{imdbid}" unless imdbid =~ /^tt\d+$/
       call({ 'mode' => 'search', 'search_imdb' => imdbid }, params)
@@ -51,12 +58,16 @@ module RARBG
 
     # Searches by TVDB ID from +tvdbid+.
     # Accepts query parameters from +params+.
+    # Returns an array of hashes of matching elements.
+    # Raises APIError if no results are found.
     def search_tvdb(tvdbid, params = {})
       call({ 'mode' => 'search', 'search_tvdb' => tvdbid }, params)
     end
 
     # Searches by The Movie Database ID from +themoviedbid+
     # Accepts query parameters from +params+.
+    # Returns an array of hashes of matching elements.
+    # Raises APIError if no results are found.
     def search_themoviedb(themoviedbid, params = {})
       call({ 'mode' => 'search', 'search_themoviedb' => themoviedbid }, params)
     end

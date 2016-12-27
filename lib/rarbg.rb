@@ -9,11 +9,17 @@ module RARBG
   API_ENDPOINT = 'https://torrentapi.org/pubapi_v2.php'.freeze
   TOKEN_EXPIRATION = 800
 
+  # Exception for low level request errors.
   class RequestError < StandardError; end
+  # Exception for high level API errors.
   class APIError < StandardError; end
 
+  # API class for performing requests.
   class API
+    # API +token+ is stored with timestamped +token_time+.
     attr_reader   :token, :token_time
+
+    # Any API call passes +default_params+ unless overidden.
     attr_accessor :default_params
 
     def initialize(params = {})
@@ -24,35 +30,40 @@ module RARBG
       }.merge!(params)
     end
 
-    # list torrents
+    # Lists all torrents.
+    # Accepts query parameters from +params+.
     def list(params = {})
       call({ 'mode' => 'list' }, params)
     end
 
-    # search torrents
+    # Searches torrents by literal name from +string+.
+    # Accepts query parameters from +params+.
     def search_string(string, params = {})
       call({ 'mode' => 'search', 'search_string' => string }, params)
     end
 
-    # search by imdb
+    # Searches by IMDb ID from +imdbid+.
+    # Accepts query parameters from +params+.
     def search_imdb(imdbid, params = {})
       imdbid = "tt#{imdbid}" unless imdbid =~ /^tt\d+$/
       call({ 'mode' => 'search', 'search_imdb' => imdbid }, params)
     end
 
-    # search by tvdb
+    # Searches by TVDB ID from +tvdbid+.
+    # Accepts query parameters from +params+.
     def search_tvdb(tvdbid, params = {})
       call({ 'mode' => 'search', 'search_tvdb' => tvdbid }, params)
     end
 
-    # search by themoviedb
+    # Searches by The Movie Database ID from +themoviedbid+
+    # Accepts query parameters from +params+.
     def search_themoviedb(themoviedbid, params = {})
       call({ 'mode' => 'search', 'search_themoviedb' => themoviedbid }, params)
     end
 
     private
 
-    # perform API call
+    # Performs API call.
     def call(method_params, custom_params)
       raise ArgumentError, 'not an Hash' unless custom_params.is_a?(Hash)
       check_token
@@ -71,12 +82,12 @@ module RARBG
       res.body['torrent_results']
     end
 
-    # check if token is empty or expired
+    # Checks if +token+ is empty or expired.
     def check_token
       get_token if @token.nil? || (Time.now - @token_time) >= TOKEN_EXPIRATION
     end
 
-    # get api token
+    # Requests or renews API token.
     def get_token
       res = request.get do |req|
         req.params['get_token'] = 'get_token'
@@ -89,7 +100,7 @@ module RARBG
       @token = res.body['token']
     end
 
-    # setup faraday request
+    # Setups Faraday request.
     def request
       Faraday.new(url: API_ENDPOINT) do |faraday|
         faraday.adapter  Faraday.default_adapter

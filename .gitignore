@@ -4,22 +4,42 @@
 /coverage/
 /InstalledFiles
 /pkg/
-/spec/reports/
-/spec/examples.txt
 /test/tmp/
 /test/version_tmp/
 /tmp/
 
-# Used by dotenv library to load environment variables.
-# .env
+## Version specifiers:
+Gemfile.lock
+.ruby-version
+.ruby-gemset
 
-## Documentation cache and generated files:
+## Environment normalization:
+/.bundle/
+/lib/bundler/man/
+
+## RSpec:
+/spec/reports/
+/spec/examples.txt
+.rspec_status
+
+## Documentation cache:
 /.yardoc/
 /_yardoc/
 /doc/
 /rdoc/
 
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+## Logs:
+*.log
+
+## Databases:
+*.sqlite
+*.db
+
+## Dotenv:
+.env
+
+## RVM:
+.rvmrc
+
+## Project specific:
+apidocs_v2.txt

@@ -114,9 +114,9 @@ module RARBG
     # Setups Faraday request.
     def request
       Faraday.new(url: API_ENDPOINT) do |faraday|
-        faraday.adapter  Faraday.default_adapter
-        faraday.request  :url_encoded
         faraday.response :json
+        faraday.request  :url_encoded
+        faraday.adapter  Faraday.default_adapter
       end
     end
   end

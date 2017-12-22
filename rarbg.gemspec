@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name          = 'rarbg'
-  s.version       = '0.1.3'
-  s.date          = '2016-12-23'
+  s.version       = '0.1.4'
+  s.date          = '2017-12-22'
   s.summary       = 'Ruby wrapper for RARBG torrentapi'
   s.description   = 'A ruby wrapper for RARBG torrentapi.'
   s.authors       = ['Tommaso Barbato']

@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 0.1.3 – 2016-12-22
-[Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.3) |
-[Diff](https://github.com/epistrephein/rarbg/compare/v0.1.2...v0.1.3)
+## 0.1.4 – 2016-12-22
+[Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.4) |
+[Diff](https://github.com/epistrephein/rarbg/compare/v0.1.4...v0.1.4)
 
 #### Fixed
 - Set Faraday middleware before adapter to suppress warning

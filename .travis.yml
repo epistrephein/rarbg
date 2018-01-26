@@ -1,0 +1,13 @@
+sudo: false
+language: ruby
+before_install: gem install bundler -v 1.16.1
+script: bundle exec rspec
+rvm:
+  - 2.5.0
+  - 2.4.3
+  - 2.3.6
+  - 2.2.9
+branches:
+  only: master
+notifications:
+  email: false

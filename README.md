@@ -1,13 +1,27 @@
 # RARBG
-[![Gem Version](https://badge.fury.io/rb/rarbg.svg)](https://badge.fury.io/rb/rarbg) [![Code Climate](https://codeclimate.com/github/epistrephein/rarbg/badges/gpa.svg)](https://codeclimate.com/github/epistrephein/rarbg) [![Dependency Status](https://gemnasium.com/epistrephein/rarbg.svg)](https://gemnasium.com/epistrephein/rarbg) [![Inline docs](http://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](http://inch-ci.org/github/epistrephein/rarbg)
+[![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen&style=flat-square)](https://rubygems.org/gems/rarbg)
+[![Build status](https://img.shields.io/travis/epistrephein/rarbg/master.svg?style=flat-square)](https://travis-ci.org/epistrephein/rarbg)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/epistrephein/rarbg.svg?style=flat-square)](https://codeclimate.com/github/epistrephein/rarbg)
+[![Coverage](https://img.shields.io/codeclimate/c/epistrephein/rarbg.svg?style=flat-square)](https://codeclimate.com/github/epistrephein/rarbg)
+[![Dependency Status](https://img.shields.io/gemnasium/epistrephein/rarbg.svg?style=flat-square)](https://gemnasium.com/epistrephein/rarbg)
+[![Inline docs](http://inch-ci.org/github/epistrephein/rarbg.svg?branch=master&style=flat-square)](http://inch-ci.org/github/epistrephein/rarbg)
 
-A ruby wrapper for RARBG torrentapi.
+Ruby wrapper for RARBG Torrent API.
 
 ## Installation
 
-```bash
-gem install rarbg
+Install as a gem
+
+```shell
+$ gem install rarbg
 ```
+
+Or add it to your Gemfile and execute `bundle install`
+
+```ruby
+gem 'rarbg', '~> 1.0'
+```
+
 
 ## Usage
 
@@ -106,7 +120,9 @@ Any request error, will raise either `Faraday::Error` and its subclasses at low 
 
 ## Contributing
 
-Contributions are welcome and encouraged. Feel free to open an issue or submit a pull request.
+Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rarbg).
+
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## License
-[MIT License](https://github.com/epistrephein/rarbg/blob/master/LICENSE)
+This gem is released as open source under the terms of the [MIT License](LICENSE).

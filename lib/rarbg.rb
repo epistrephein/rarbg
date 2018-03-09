@@ -1,123 +1,195 @@
+# frozen_string_literal: true
+
 require 'faraday'
 require 'faraday_middleware'
-require 'json'
-require 'time'
 
-# A ruby wrapper for RARBG torrentapi.
+# Main namespace for RARBG
 module RARBG
-  VERSION = '0.1.4'.freeze
-  APP_ID = 'rarbg-rubygem'.freeze
-  API_ENDPOINT = 'https://torrentapi.org/pubapi_v2.php'.freeze
-  TOKEN_EXPIRATION = 800
+  # Gem version
+  VERSION = '1.0.0.beta.1'
 
-  # Exception for low level request errors.
-  class RequestError < StandardError; end
-  # Exception for high level API errors.
+  # Default error class for the module.
   class APIError < StandardError; end
 
-  # API class for performing requests.
+  # Base class for RARBG API.
   class API
-    # API +token+ is stored with timestamped +token_time+.
-    attr_reader   :token, :token_time
+    # RARBG API endpoint.
+    API_ENDPOINT = 'https://torrentapi.org/pubapi_v2.php'
 
-    # Any API call passes +default_params+ unless overidden.
-    attr_accessor :default_params
+    # App name identifier.
+    APP_ID = 'rarbg-rubygem'
 
-    # Returns a new API object with +@default_params+ defined in +params+.
-    def initialize(params = {})
-      @default_params = {
-        'limit'  => 25,
-        'sort'   => 'last',
-        'format' => 'json_extended'
-      }.merge!(params)
+    # Default token expiration time.
+    TOKEN_EXPIRATION = 800
+
+    # @return [Faraday::Connection] the Faraday connection object.
+    attr_reader :conn
+
+    # @return [String] the token used for authentication.
+    attr_reader :token
+
+    # @return [Integer] the epoch timestamp of the token request.
+    attr_reader :token_time
+
+    # @return [Integer] the epoch timestamp of the last request performed.
+    attr_reader :last_request
+
+    # Initialize a new istance of `RARBG::API`.
+    #
+    # @example
+    #   rarbg = RARBG::API.new
+    def initialize
+      @conn = Faraday.new(url: API_ENDPOINT) do |conn|
+        conn.request  :json
+        conn.response :json
+        conn.adapter  Faraday.default_adapter
+
+        conn.params[:app_id] = APP_ID
+      end
     end
 
-    # Lists all torrents.
-    # Accepts query parameters from +params+.
-    # Returns an array of hashes.
+    # List torrents.
+    #
+    # @param params [Hash] A customizable set of parameters.
+    #
+    # @option params [Array<Integer>] :category
+    # @option params [Symbol] :format Results format.
+    #   Valid values: `:json`, `:json_extended`. Default: `:json`.
+    # @option params [Integer] :limit Results limit.
+    #   Valid values: `25`, `50`, `100`. Default: `25`.
+    # @option params [Integer] :min_seeders
+    # @option params [Integer] :min_leechers
+    # @option params [Boolean] :ranked
+    # @option params [Symbol] :sort Results sorting.
+    #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
+    #
+    # @return [Array<Hash>] Return tweets that match a specified query with
+    #   search metadata.
+    #
+    # @raise [RARBG::APIError] Error raised when supplied user credentials
+    #   are not valid.
+    #
+    # @example List last 100 ranked torrents in `Movies/x264/1080`
+    #   rarbg = RARBG::API.new
+    #   rarbg.list(limit: 100, ranked: true, category: [44])
     def list(params = {})
-      call({ 'mode' => 'list' }, params)
+      raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
+
+      params.update(
+        mode:   'list',
+        token:  token?
+      )
+      call(params)
     end
 
-    # Searches torrents by literal name from +string+.
-    # Accepts query parameters from +params+.
-    # Returns an array of hashes of matching elements.
-    # Raises APIError if no results are found.
-    def search_string(string, params = {})
-      call({ 'mode' => 'search', 'search_string' => string }, params)
-    end
+    # Search torrents.
+    #
+    # @param params [Hash] A customizable set of parameters.
+    #
+    # @option params [String] :string
+    # @option params [String] :imdb
+    # @option params [String] :tvdb
+    # @option params [String] :themoviedb
+    # @option params [Array<Integer>] :category
+    # @option params [Symbol] :format
+    # @option params [Integer] :limit
+    # @option params [Integer] :min_seeders
+    # @option params [Integer] :min_leechers
+    # @option params [Boolean] :ranked
+    # @option params [Symbol] :sort
+    #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
+    #
+    # @return [Array<Hash>] Return tweets that match a specified query with
+    #   search metadata.
+    #
+    # @raise [RARBG::APIError] Error raised when supplied user credentials
+    #   are not valid.
+    #
+    # @example Search by IMDb ID, sorted by leechers.
+    #   rarbg = RARBG::API.new
+    #   rarbg.search(imdb: 'tt012831', sort: :leechers)
+    #
+    # @example Search unranked torrents by string, with at least 2 seeders.
+    #   rarbg = RARBG::API.new
+    #   rarbg.search(string: 'Star Wars', ranked: false, min_seeders: 2)
+    def search(params = {})
+      raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
-    # Searches by IMDb ID from +imdbid+.
-    # Accepts query parameters from +params+.
-    # Returns an array of hashes of matching elements.
-    # Raises APIError if no results are found.
-    def search_imdb(imdbid, params = {})
-      imdbid = "tt#{imdbid}" unless imdbid =~ /^tt\d+$/
-      call({ 'mode' => 'search', 'search_imdb' => imdbid }, params)
-    end
-
-    # Searches by TVDB ID from +tvdbid+.
-    # Accepts query parameters from +params+.
-    # Returns an array of hashes of matching elements.
-    # Raises APIError if no results are found.
-    def search_tvdb(tvdbid, params = {})
-      call({ 'mode' => 'search', 'search_tvdb' => tvdbid }, params)
-    end
-
-    # Searches by The Movie Database ID from +themoviedbid+
-    # Accepts query parameters from +params+.
-    # Returns an array of hashes of matching elements.
-    # Raises APIError if no results are found.
-    def search_themoviedb(themoviedbid, params = {})
-      call({ 'mode' => 'search', 'search_themoviedb' => themoviedbid }, params)
+      params.update(
+        mode:   'search',
+        token:  token?
+      )
+      call(params)
     end
 
     private
 
-    # Performs API call.
-    def call(method_params, custom_params)
-      raise ArgumentError, 'not an Hash' unless custom_params.is_a?(Hash)
-      check_token
+    def call(params)
+      response = request(validate(params))
 
-      res = request.get do |req|
-        req.params.merge!(@default_params)
-        req.params.merge!(custom_params)
-        req.params.merge!(method_params)
-
-        req.params['app_id'] = APP_ID
-        req.params['token'] = @token
-      end
-      raise RequestError, res.reason_phrase unless res.success?
-      raise APIError, res.body['error'] if res.body['error']
-
-      res.body['torrent_results']
+      return [] if response['error'] == 'No results found'
+      raise APIError, response['error'] if response.key?('error')
+      response.fetch('torrent_results', [])
     end
 
-    # Checks if +token+ is empty or expired.
-    def check_token
-      get_token if @token.nil? || (Time.now - @token_time) >= TOKEN_EXPIRATION
+    def validate(params)
+      params = stringify(params)
+      params = validate_search!(params) if params['mode'] == 'search'
+
+      normalize.each_pair do |key, proc|
+        params[key] = proc.call(params[key]) if params.key?(key)
+      end
+      params
     end
 
-    # Requests or renews API token.
-    def get_token
-      res = request.get do |req|
-        req.params['get_token'] = 'get_token'
-      end
-      raise RequestError, res.reason_phrase unless res.success?
-      raise APIError, res.body['error'] if res.body['error']
-      sleep 2
-
-      @token_time = Time.now
-      @token = res.body['token']
+    def stringify(params)
+      Hash[params.reject { |_k, v| v.nil? }.map { |k, v| [k.to_s, v] }]
     end
 
-    # Setups Faraday request.
-    def request
-      Faraday.new(url: API_ENDPOINT) do |faraday|
-        faraday.response :json
-        faraday.request  :url_encoded
-        faraday.adapter  Faraday.default_adapter
+    def validate_search!(params)
+      search_keys = %w[string imdb tvdb themoviedb]
+
+      raise(
+        ArgumentError,
+        "At least one parameter required among #{search_keys.join(', ')} " \
+        'for search mode.'
+      ) if (params.keys & search_keys).none?
+
+      search_keys.each do |k|
+        params["search_#{k}"] = params.delete(k) if params.key?(k)
       end
+      params
+    end
+
+    def normalize
+      {
+        'category' => (->(v) { v.join(';') }),
+        'imdb'     => (->(v) { v.to_s[/^tt/] ? v.to_s : "tt#{v}" }),
+        'ranked'   => (->(v) { v == false ? 0 : 1 })
+      }
+    end
+
+    def token?
+      if @token.nil? || Time.now.to_i >= (@token_time + TOKEN_EXPIRATION)
+        response = request(get_token: 'get_token')
+        @token = response.fetch('token')
+        @token_time = Time.now.to_i
+      end
+      @token
+    end
+
+    def request(params)
+      rate_limit!(2.5)
+
+      response = @conn.get(nil, params)
+      @last_request = Time.now.to_i
+
+      return response.body if response.success?
+      raise APIError, "#{response.reason_phrase} (#{response.status})"
+    end
+
+    def rate_limit!(seconds)
+      sleep(0.5) until Time.now.to_f >= (@last_request.to_i + seconds)
     end
   end
 end

@@ -31,13 +31,6 @@ Gemfile.lock
 ## Logs:
 *.log
 
-## Databases:
-*.sqlite
-*.db
-
-## Dotenv:
-.env
-
 ## RVM:
 .rvmrc
 

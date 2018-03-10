@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rarbg'
-
 Gem::Specification.new do |spec|
   spec.name          = 'rarbg'
-  spec.version       = RARBG::VERSION
+  spec.version       = '1.0.0.beta.1'
   spec.author        = 'Tommaso Barbato'
   spec.email         = 'epistrephein@gmail.com'
 
@@ -31,8 +27,8 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.0'
 
-  spec.add_dependency 'faraday', '~> 0.10'
-  spec.add_dependency 'faraday_middleware', '~> 0.10'
+  spec.add_runtime_dependency 'faraday', '~> 0.10'
+  spec.add_runtime_dependency 'faraday_middleware', '~> 0.10'
 
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'pry', '~> 0'

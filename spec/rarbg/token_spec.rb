@@ -7,7 +7,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when token request succeeds' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, DEFAULT_URL + 'get_token=get_token')
         .to_return(status: 200, body: { token: @token }.to_json)
       stub_request(:get, DEFAULT_URL + "mode=list&token=#{@token}")
@@ -34,7 +34,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when token request fails' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, /torrentapi.org/)
         .to_return(status: [500, 'Internal Server Error'])
     end

@@ -13,7 +13,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when search request returns no result' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, /mode=search/)
         .to_return(status: 200, body: { error: 'No results found' }.to_json)
     end
@@ -24,7 +24,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when search request has invalid parameters' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, /mode=search/)
         .to_return(status: 200, body: { error: 'Invalid sort' }.to_json)
     end
@@ -46,7 +46,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when search request fails' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, /mode=search/)
         .to_return(status: [503, 'Service unavailable'])
     end

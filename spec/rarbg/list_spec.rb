@@ -13,7 +13,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when list request returns no result' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, /mode=list/)
         .to_return(status: 200, body: { error: 'No results found' }.to_json)
     end
@@ -24,7 +24,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when list request has invalid parameters' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, /mode=list/)
         .to_return(status: 200, body: { error: 'Invalid value for min_seeders' }.to_json)
     end
@@ -37,7 +37,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when list request fails' do
-    before(:context) do
+    before(:example) do
       stub_request(:get, /mode=list/)
         .to_return(status: [500, 'Internal Server Error'])
     end

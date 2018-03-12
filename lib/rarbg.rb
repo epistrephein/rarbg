@@ -52,26 +52,31 @@ module RARBG
     #
     # @param params [Hash] A customizable set of parameters.
     #
-    # @option params [Array<Integer>] :category
-    # @option params [Symbol] :format Results format.
+    # @option params [Array<Integer>] :category Filter results by category.
+    # @option params [Symbol] :format Format results.
     #   Valid values: `:json`, `:json_extended`. Default: `:json`.
-    # @option params [Integer] :limit Results limit.
+    # @option params [Integer] :limit Limit results number.
     #   Valid values: `25`, `50`, `100`. Default: `25`.
-    # @option params [Integer] :min_seeders
-    # @option params [Integer] :min_leechers
-    # @option params [Boolean] :ranked
-    # @option params [Symbol] :sort Results sorting.
+    # @option params [Integer] :min_seeders Filter results by minimum seeders.
+    # @option params [Integer] :min_leechers Filter results by minimum leechers.
+    # @option params [Boolean] :ranked Include/exclude unranked results.
+    # @option params [Symbol] :sort Sort results.
     #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
     #
-    # @return [Array<Hash>] Return tweets that match a specified query with
-    #   search metadata.
+    # @return [Array<Hash>] Return torrents that match the specified parameters.
     #
-    # @raise [RARBG::APIError] Error raised when supplied user credentials
-    #   are not valid.
+    # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
+    #
+    # @raise [RARBG::APIError] Exception raised when request fails or endpoint
+    #   responds with an error.
     #
     # @example List last 100 ranked torrents in `Movies/x264/1080`
     #   rarbg = RARBG::API.new
     #   rarbg.list(limit: 100, ranked: true, category: [44])
+    #
+    # @example List all torrent with minimum 50 seeders
+    #   rarbg = RARBG::API.new
+    #   rarbg.list(min_seeders: 50)
     def list(params = {})
       raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
@@ -86,28 +91,34 @@ module RARBG
     #
     # @param params [Hash] A customizable set of parameters.
     #
-    # @option params [String] :string
-    # @option params [String] :imdb
-    # @option params [String] :tvdb
-    # @option params [String] :themoviedb
-    # @option params [Array<Integer>] :category
-    # @option params [Symbol] :format
-    # @option params [Integer] :limit
-    # @option params [Integer] :min_seeders
-    # @option params [Integer] :min_leechers
-    # @option params [Boolean] :ranked
-    # @option params [Symbol] :sort
+    # @option params [String] :string Search results by string.
+    # @option params [String] :imdb Search results by IMDb id.
+    # @option params [String] :tvdb Search results by TVDB id.
+    # @option params [String] :themoviedb Search results by The Movie DB id.
+    # @option params [Array<Integer>] :category Filter results by category.
+    # @option params [Symbol] :format Format results.
+    #   Valid values: `:json`, `:json_extended`. Default: `:json`
+    # @option params [Integer] :limit Limit results number.
+    #   Valid values: `25`, `50`, `100`. Default: `25`.
+    # @option params [Integer] :min_seeders Filter results by minimum seeders.
+    # @option params [Integer] :min_leechers Filter results by minimum leechers.
+    # @option params [Boolean] :ranked Include/exclude unranked results.
+    # @option params [Symbol] :sort Sort results.
     #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
     #
-    # @return [Array<Hash>] Return tweets that match a specified query with
-    #   search metadata.
+    # @return [Array<Hash>] Return torrents that match the specified parameters.
     #
-    # @raise [RARBG::APIError] Error raised when supplied user credentials
-    #   are not valid.
+    # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
     #
-    # @example Search by IMDb ID, sorted by leechers.
+    # @raise [ArgumentError] Exception raised if no search type param is passed
+    #   (among `string`, `imdb`, `tvdb`, `themoviedb`).
+    #
+    # @raise [RARBG::APIError] Exception raised when request fails or endpoint
+    #   responds with an error.
+    #
+    # @example Search by IMDb ID, sorted by leechers and in extended format.
     #   rarbg = RARBG::API.new
-    #   rarbg.search(imdb: 'tt012831', sort: :leechers)
+    #   rarbg.search(imdb: 'tt012831', sort: :leechers, format: :json_extended)
     #
     # @example Search unranked torrents by string, with at least 2 seeders.
     #   rarbg = RARBG::API.new

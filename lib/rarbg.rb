@@ -135,6 +135,7 @@ module RARBG
 
     private
 
+    # Wrap request for error handling.
     def call(params)
       response = request(validate(params))
 
@@ -143,6 +144,7 @@ module RARBG
       response.fetch('torrent_results', [])
     end
 
+    # Validate parameters.
     def validate(params)
       params = stringify(params)
       params = validate_search!(params) if params['mode'] == 'search'
@@ -153,10 +155,12 @@ module RARBG
       params
     end
 
+    # Convert symbol keys to string and remove nil values.
     def stringify(params)
       Hash[params.reject { |_k, v| v.nil? }.map { |k, v| [k.to_s, v] }]
     end
 
+    # Validate search type parameter.
     def validate_search!(params)
       search_keys = %w[string imdb tvdb themoviedb]
 
@@ -172,6 +176,7 @@ module RARBG
       params
     end
 
+    # Convert ruby sugar to expected value style.
     def normalize
       {
         'category' => (->(v) { v.join(';') }),
@@ -180,6 +185,7 @@ module RARBG
       }
     end
 
+    # Return or renew auth token.
     def token?
       if @token.nil? || Time.now.to_i >= (@token_time + TOKEN_EXPIRATION)
         response = request(get_token: 'get_token')
@@ -189,6 +195,7 @@ module RARBG
       @token
     end
 
+    # Perform API request.
     def request(params)
       rate_limit!(2.5)
 
@@ -199,6 +206,7 @@ module RARBG
       raise APIError, "#{response.reason_phrase} (#{response.status})"
     end
 
+    # Rate limit requests to comply with endpoint limits.
     def rate_limit!(seconds)
       sleep(0.5) until Time.now.to_f >= (@last_request.to_i + seconds)
     end

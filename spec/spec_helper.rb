@@ -8,11 +8,11 @@ require 'webmock/rspec'
 require 'securerandom'
 require 'rarbg'
 
-DEFAULT_URL = 'https://torrentapi.org/pubapi_v2.php?app_id=rarbg-rubygem&'
+require_relative 'stubs'
 
 RSpec.configure do |config|
   WebMock.disable_net_connect!(allow_localhost: true)
-  # config.include(Stubs)
+  config.include(Stubs)
 
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'

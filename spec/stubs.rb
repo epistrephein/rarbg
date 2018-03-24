@@ -31,10 +31,4 @@ module Stubs
       .with(query: hash_including({}))
       .to_return(status: [status, error])
   end
-
-  # def build(query)
-  #   uri = Faraday::Utils.URI(BASE_URL)
-  #   uri.query = Faraday::Utils.build_query(query.update(app_id: APP_ID))
-  #   uri.to_s
-  # end
 end

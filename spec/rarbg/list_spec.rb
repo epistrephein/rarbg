@@ -4,18 +4,46 @@ RSpec.describe RARBG::API do
   before(:all) do
     @rarbg = RARBG::API.new
     @token = SecureRandom.hex(5)
+  end
 
-    stub_request(:get, /get_token/)
-      .to_return(status: 200, body: { token: @token }.to_json)
+  before(:each) do
+    stub_token(@token)
   end
 
   context 'when list request succeeds' do
+    before(:example) do
+      stub_list(
+        @token, {},
+        { torrent_results: [
+          {
+            filename: 'first stubbed name',
+            category: 'first stubbed category',
+            download: 'first stubbed magnet link'
+          },
+          {
+            filename: 'second stubbed name',
+            category: 'second stubbed category',
+            download: 'second stubbed magnet link'
+          }
+        ]}
+      )
+    end
+
+    it 'returns and array of hashes' do
+      expect(@rarbg.list).to all(be_an(Hash))
+    end
+
+    it 'returns hashes with filename and download link' do
+      expect(@rarbg.list).to all(include('filename').and include('download'))
+    end
   end
 
   context 'when list request returns no result' do
     before(:example) do
-      stub_request(:get, /mode=list/)
-        .to_return(status: 200, body: { error: 'No results found' }.to_json)
+      stub_list(
+        @token, {},
+        { error: 'No results found' }
+      )
     end
 
     it 'returns an empty array' do
@@ -23,13 +51,30 @@ RSpec.describe RARBG::API do
     end
   end
 
-  context 'when list request has invalid parameters' do
+  context 'when list request parameters is not an hash' do
     before(:example) do
-      stub_request(:get, /mode=list/)
-        .to_return(status: 200, body: { error: 'Invalid value for min_seeders' }.to_json)
+      stub_list(
+        @token
+      )
     end
 
-    it 'raises an exception' do
+    it 'raises an ArgumentError exception' do
+      expect { @rarbg.list('string') }.to raise_error(
+        ArgumentError, 'Expected params hash'
+      )
+    end
+  end
+
+  context 'when list request has invalid parameters' do
+    before(:example) do
+      stub_list(
+        @token,
+        { min_seeders: 'string' },
+        { error: 'Invalid value for min_seeders' }
+      )
+    end
+
+    it 'raises an APIError exception' do
       expect { @rarbg.list(min_seeders: 'string') }.to raise_error(
         RARBG::APIError, 'Invalid value for min_seeders'
       )
@@ -38,11 +83,10 @@ RSpec.describe RARBG::API do
 
   context 'when list request fails' do
     before(:example) do
-      stub_request(:get, /mode=list/)
-        .to_return(status: [500, 'Internal Server Error'])
+      stub_server_error(500, 'Internal Server Error')
     end
 
-    it 'raises an exception' do
+    it 'raises an APIError exception' do
       expect { @rarbg.list }.to raise_error(
         RARBG::APIError, 'Internal Server Error (500)'
       )

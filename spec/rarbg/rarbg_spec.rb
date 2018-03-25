@@ -12,4 +12,8 @@ RSpec.describe RARBG::API do
   it 'has the correct API endpoint' do
     expect(RARBG::API::API_ENDPOINT).to eq('https://torrentapi.org/pubapi_v2.php')
   end
+
+  it 'has a token expiration' do
+    expect(RARBG::API::TOKEN_EXPIRATION).to be_kind_of(Numeric)
+  end
 end

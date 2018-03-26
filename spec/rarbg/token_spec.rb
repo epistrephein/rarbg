@@ -32,10 +32,10 @@ RSpec.describe RARBG::API do
 
   context 'when token request fails' do
     before(:example) do
-      stub_server_error(500, 'Internal Server Error')
+      stub_error(500, 'Internal Server Error')
     end
 
-    it 'raises an exception' do
+    it 'raises an APIError exception' do
       expect { @rarbg.list }.to raise_error(
         RARBG::APIError, 'Internal Server Error (500)'
       )

@@ -28,7 +28,7 @@ module Stubs
       .to_return(status: 200, body: result.to_json)
   end
 
-  def stub_server_error(status, error)
+  def stub_error(status, error)
     stub_request(:get, BASE_URL)
       .with(query: hash_including({}))
       .to_return(status: [status, error])

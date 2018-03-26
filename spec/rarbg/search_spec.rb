@@ -25,7 +25,7 @@ RSpec.describe RARBG::API do
             category: 'second stubbed category',
             download: 'second stubbed magnet link'
           }
-        ]}
+        ] }
       )
     end
 
@@ -95,7 +95,7 @@ RSpec.describe RARBG::API do
 
   context 'when search request fails' do
     before(:example) do
-      stub_server_error(503, 'Service unavailable')
+      stub_error(503, 'Service unavailable')
     end
 
     it 'raises an APIError exception' do

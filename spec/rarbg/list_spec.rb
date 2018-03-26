@@ -25,7 +25,7 @@ RSpec.describe RARBG::API do
             category: 'second stubbed category',
             download: 'second stubbed magnet link'
           }
-        ]}
+        ] }
       )
     end
 
@@ -83,7 +83,7 @@ RSpec.describe RARBG::API do
 
   context 'when list request fails' do
     before(:example) do
-      stub_server_error(500, 'Internal Server Error')
+      stub_error(500, 'Internal Server Error')
     end
 
     it 'raises an APIError exception' do

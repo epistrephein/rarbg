@@ -41,4 +41,14 @@ RSpec.describe RARBG::API do
       )
     end
   end
+
+  context 'when token request timeouts' do
+    before(:example) do
+      stub_timeout
+    end
+
+    it 'raises a Faraday::ConnectionFailed exception' do
+      expect { @rarbg.list }.to raise_error(Faraday::ConnectionFailed)
+    end
+  end
 end

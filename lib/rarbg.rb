@@ -44,6 +44,9 @@ module RARBG
         conn.response :json
         conn.adapter  Faraday.default_adapter
 
+        conn.options.timeout = 90
+        conn.options.open_timeout = 10
+
         conn.params[:app_id] = APP_ID
       end
     end

@@ -33,4 +33,10 @@ module Stubs
       .with(query: hash_including({}))
       .to_return(status: [status, error])
   end
+
+  def stub_timeout
+    stub_request(:get, BASE_URL)
+      .with(query: hash_including({}))
+      .to_timeout
+  end
 end

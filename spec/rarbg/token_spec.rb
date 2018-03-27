@@ -35,7 +35,7 @@ RSpec.describe RARBG::API do
       stub_error(500, 'Internal Server Error')
     end
 
-    it 'raises an APIError exception' do
+    it 'raises a RARBG::APIError exception' do
       expect { @rarbg.list }.to raise_error(
         RARBG::APIError, 'Internal Server Error (500)'
       )

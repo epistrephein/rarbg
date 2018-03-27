@@ -87,7 +87,7 @@ RSpec.describe RARBG::API do
       )
     end
 
-    it 'raises an APIError exception' do
+    it 'raises a RARBG::APIError exception' do
       expect { @rarbg.search(string: 'string', sort: 'wrongsort') }
         .to raise_error(RARBG::APIError, 'Invalid sort')
     end
@@ -98,7 +98,7 @@ RSpec.describe RARBG::API do
       stub_error(503, 'Service unavailable')
     end
 
-    it 'raises an APIError exception' do
+    it 'raises a RARBG::APIError exception' do
       expect { @rarbg.search(string: 'string') }.to raise_error(
         RARBG::APIError, 'Service unavailable (503)'
       )

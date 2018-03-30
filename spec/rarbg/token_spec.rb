@@ -22,11 +22,11 @@ RSpec.describe RARBG::API do
     end
 
     it 'has a token timestamp' do
-      expect(@rarbg.token_time).to be_a(Integer)
+      expect(@rarbg.token_time).to be_a(Numeric)
     end
 
     it 'has last request > token_time' do
-      expect(@rarbg.last_request).to be > @rarbg.token_time
+      expect(@rarbg.last_request - @rarbg.token_time).to be > 2
     end
   end
 

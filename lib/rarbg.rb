@@ -189,20 +189,20 @@ module RARBG
 
     # Return or renew auth token.
     def token?
-      if @token.nil? || Time.now.to_i >= (@token_time + TOKEN_EXPIRATION)
+      if @token.nil? || time >= (@token_time + TOKEN_EXPIRATION)
         response = request(get_token: 'get_token')
         @token = response.fetch('token')
-        @token_time = Time.now.to_i
+        @token_time = time
       end
       @token
     end
 
     # Perform API request.
     def request(params)
-      rate_limit!(2.5)
+      rate_limit!(2.1)
 
       response = @conn.get(nil, params)
-      @last_request = Time.now.to_i
+      @last_request = time
 
       return response.body if response.success?
       raise APIError, "#{response.reason_phrase} (#{response.status})"
@@ -210,7 +210,12 @@ module RARBG
 
     # Rate limit requests to comply with endpoint limits.
     def rate_limit!(seconds)
-      sleep(0.5) until Time.now.to_f >= (@last_request.to_i + seconds)
+      sleep(0.5) until time >= ((@last_request || 0) + seconds)
+    end
+
+    # Monotonic clock for elapsed time calculations.
+    def time
+      Process.clock_gettime(Process::CLOCK_MONOTONIC)
     end
   end
 end

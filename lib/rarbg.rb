@@ -3,11 +3,10 @@
 require 'faraday'
 require 'faraday_middleware'
 
+require 'rarbg/version'
+
 # Main namespace for RARBG
 module RARBG
-  # Gem version
-  VERSION = '1.0.0.beta.1'
-
   # Default error class for the module.
   class APIError < StandardError; end
 

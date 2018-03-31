@@ -27,10 +27,10 @@ module RARBG
     # @return [String] the token used for authentication.
     attr_reader :token
 
-    # @return [Integer] the epoch timestamp of the token request.
+    # @return [Integer] the monotonic timestamp of the token request.
     attr_reader :token_time
 
-    # @return [Integer] the epoch timestamp of the last request performed.
+    # @return [Integer] the monotonic timestamp of the last request performed.
     attr_reader :last_request
 
     # Initialize a new istance of `RARBG::API`.

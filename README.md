@@ -1,4 +1,5 @@
 # RARBG
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8eb76c576e2c4ec2b0577a30d8803e85)](https://app.codacy.com/app/epistrephein/rarbg?utm_source=github.com&utm_medium=referral&utm_content=epistrephein/rarbg&utm_campaign=badger)
 [![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen&style=flat-square)](https://rubygems.org/gems/rarbg)
 [![Build status](https://img.shields.io/travis/epistrephein/rarbg/master.svg?style=flat-square)](https://travis-ci.org/epistrephein/rarbg)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/epistrephein/rarbg.svg?style=flat-square)](https://codeclimate.com/github/epistrephein/rarbg)

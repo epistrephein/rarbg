@@ -206,9 +206,9 @@ module RARBG
       raise APIError, "#{response.reason_phrase} (#{response.status})"
     end
 
-    # Rate limit requests to comply with endpoint limits.
+    # Rate-limit requests to comply with endpoint limits.
     def rate_limit!(seconds)
-      sleep(0.5) until time >= ((@last_request || 0) + seconds)
+      sleep(0.3) until time >= ((@last_request || 0) + seconds)
     end
 
     # Monotonic clock for elapsed time calculations.

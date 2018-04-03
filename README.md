@@ -22,7 +22,7 @@ Or add it to your Gemfile and execute `bundle install`
 gem 'rarbg', '~> 1.0'
 ```
 
-## Usage [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg?style=flat-square)](http://www.rubydoc.info/gems/rarbg)
+## Usage [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg?style=flat-square)](http://www.rubydoc.info/github/epistrephein/rarbg)
 
 This gem wraps all API methods available from [RARBG TorrentAPI](https://torrentapi.org/apidocs_v2.txt).
 
@@ -49,7 +49,7 @@ All successful method calls return an array of hashes.
 # List last 100 torrents.
 rarbg.list(limit: 100)
 
-# List all torrents with at least 20 seeders, sorted by seeders.
+# List torrents with at least 20 seeders, sorted by seeders.
 rarbg.list(min_seeders: 100, sort: :seeders)
 
 # List torrents with extended json infos.

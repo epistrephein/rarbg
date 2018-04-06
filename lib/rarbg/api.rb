@@ -74,7 +74,7 @@ module RARBG
     #   rarbg = RARBG::API.new
     #   rarbg.list(limit: 100, ranked: true, category: [44])
     #
-    # @example List all torrent with minimum 50 seeders
+    # @example List torrents with at least 50 seeders
     #   rarbg = RARBG::API.new
     #   rarbg.list(min_seeders: 50)
     def list(params = {})

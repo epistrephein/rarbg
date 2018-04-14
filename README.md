@@ -50,7 +50,7 @@ All successful method calls return an array of hashes.
 rarbg.list(limit: 100)
 
 # List torrents with at least 20 seeders, sorted by seeders.
-rarbg.list(min_seeders: 100, sort: :seeders)
+rarbg.list(min_seeders: 20, sort: :seeders)
 
 # List torrents with extended json infos.
 rarbg.list(format: :json_extended)

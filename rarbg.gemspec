@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.metadata = {
     'bug_tracker_uri'   => 'https://github.com/epistrephein/rarbg/issues',
     'changelog_uri'     => 'https://github.com/epistrephein/rarbg/blob/master/CHANGELOG.md',
-    'documentation_uri' => 'http://www.rubydoc.info/gems/rarbg',
+    'documentation_uri' => "http://www.rubydoc.info/gems/rarbg/#{RARBG::VERSION}",
     'homepage_uri'      => 'https://github.com/epistrephein/rarbg',
     'source_code_uri'   => 'https://github.com/epistrephein/rarbg'
   }

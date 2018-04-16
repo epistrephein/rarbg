@@ -1,10 +1,11 @@
 # RARBG
-[![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen&style=flat-square)](https://rubygems.org/gems/rarbg)
-[![Build status](https://img.shields.io/travis/epistrephein/rarbg/master.svg?style=flat-square)](https://travis-ci.org/epistrephein/rarbg)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/epistrephein/rarbg.svg?style=flat-square)](https://codeclimate.com/github/epistrephein/rarbg)
-[![Coverage](https://img.shields.io/codeclimate/c/epistrephein/rarbg.svg?style=flat-square)](https://codeclimate.com/github/epistrephein/rarbg)
-[![Dependency Status](https://img.shields.io/gemnasium/epistrephein/rarbg.svg?style=flat-square)](https://gemnasium.com/epistrephein/rarbg)
-[![Inline docs](http://inch-ci.org/github/epistrephein/rarbg.svg?branch=master&style=flat-square)](http://inch-ci.org/github/epistrephein/rarbg)
+[![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen)](https://rubygems.org/gems/rarbg)
+[![Build status](https://travis-ci.org/epistrephein/rarbg.svg?branch=master)](https://travis-ci.org/epistrephein/rarbg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/maintainability)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/test_coverage)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
+[![Dependency Status](https://gemnasium.com/badges/github.com/epistrephein/rarbg.svg)](https://gemnasium.com/epistrephein/rarbg)
+[![Security](https://hakiri.io/github/epistrephein/rarbg/master.svg)](https://hakiri.io/github/epistrephein/rarbg/master)
+[![Inline docs](http://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](http://inch-ci.org/github/epistrephein/rarbg)
 
 Ruby wrapper for RARBG Torrent API.
 
@@ -22,7 +23,7 @@ Or add it to your Gemfile and execute `bundle install`
 gem 'rarbg', '~> 1.0'
 ```
 
-## Usage [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg?style=flat-square)](http://www.rubydoc.info/github/epistrephein/rarbg)
+## Usage [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](http://www.rubydoc.info/github/epistrephein/rarbg)
 
 This gem wraps all API methods available from [RARBG TorrentAPI](https://torrentapi.org/apidocs_v2.txt).
 
@@ -96,7 +97,7 @@ rarbg.search(limit: 50)
 # => ArgumentError: At least one parameter required among string, imdb, tvdb, themoviedb for search mode.
 ```
 
-## Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg?style=flat-square)](http://makeapullrequest.com)
+## Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](http://makeapullrequest.com)
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rarbg).
 
@@ -112,5 +113,5 @@ You can contribute changes by forking the project and submitting a pull request.
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new pull request
 
-## License [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+## License [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 This gem is released as open source under the terms of the [MIT License](LICENSE).

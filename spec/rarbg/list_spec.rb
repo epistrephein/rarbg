@@ -34,7 +34,7 @@ RSpec.describe RARBG::API do
     end
 
     it 'returns hashes with filename and download link' do
-      expect(@rarbg.list).to all(include('filename').and include('download'))
+      expect(@rarbg.list).to all include('filename').and include('download')
     end
   end
 

@@ -35,7 +35,7 @@ RSpec.describe RARBG::API do
 
     it 'returns hashes with filename and download link' do
       expect(@rarbg.search(imdb: 'tt0000000'))
-        .to all(include('filename').and include('download'))
+        .to all include('filename').and include('download')
     end
   end
 

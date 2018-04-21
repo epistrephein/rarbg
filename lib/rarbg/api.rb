@@ -39,6 +39,7 @@ module RARBG
       @conn = Faraday.new(url: API_ENDPOINT) do |conn|
         conn.request  :json
         conn.response :json
+        conn.response :logger if $VERBOSE
         conn.adapter  Faraday.default_adapter
 
         conn.options.timeout = 90

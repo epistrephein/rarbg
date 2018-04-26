@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.0.0...master)
+
+#### Added
+- Faraday now logs requests to stdout if in verbose mode (`-w` or `-v`).
+
+#### Fixed
+- Fixed code styling and some documentation errors.
+
+
 ## 1.0.0 – 2018-04-02
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.0.0) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.4...v1.0.0)
@@ -58,4 +68,4 @@ search type must be specified as a keyword argument upon `search`.
 
 ## 0.1.0 – 2016-12-21
 
-Yanked
+Initial release of rarbg gem.

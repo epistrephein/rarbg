@@ -39,7 +39,7 @@ search type must be specified as a keyword argument upon `search`.
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.3...v0.1.4)
 
 #### Fixed
-- Set Faraday middleware before adapter to suppress warning
+- Set Faraday middleware before adapter to suppress warning.
 
 
 ## 0.1.3 – 2016-12-23
@@ -47,7 +47,7 @@ search type must be specified as a keyword argument upon `search`.
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.2...v0.1.3)
 
 #### Changed
-- Move `app_id` and `token` params to `call` method to prevent override
+- Move `app_id` and `token` params to `call` method to prevent override.
 
 
 ## 0.1.2 – 2016-12-21
@@ -55,7 +55,7 @@ search type must be specified as a keyword argument upon `search`.
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.1...v0.1.2)
 
 #### Changed
-- Sleep for 2 seconds after `get_token` to avoid request limit error
+- Sleep for 2 seconds after `get_token` to avoid request limit error.
 
 
 ## 0.1.1 – 2016-12-21
@@ -68,4 +68,4 @@ search type must be specified as a keyword argument upon `search`.
 
 ## 0.1.0 – 2016-12-21
 
-Initial release of rarbg gem.
+Initial release. Yanked from [rubygems](https://rubygems.org).

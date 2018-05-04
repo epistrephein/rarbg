@@ -180,9 +180,9 @@ module RARBG
     # Convert ruby sugar to expected value style.
     def normalize
       {
-        'category' => (->(v) { v.join(';') }),
-        'imdb'     => (->(v) { v.to_s[/^tt/] ? v.to_s : "tt#{v}" }),
-        'ranked'   => (->(v) { v == false ? 0 : 1 })
+        'category'    => (->(v) { v.join(';') }),
+        'ranked'      => (->(v) { v == false ? 0 : 1 }),
+        'search_imdb' => (->(v) { v.to_s[/^tt/] ? v.to_s : "tt#{v}" })
       }
     end
 

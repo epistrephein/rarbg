@@ -4,14 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## Unreleased
-[Diff](https://github.com/epistrephein/rarbg/compare/v1.0.0...master)
+## 1.0.1 - 2018-05-04
+[Release](https://github.com/epistrephein/rarbg/releases/tag/v1.0.1) |
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.0.0...v1.0.1)
 
 #### Added
 - Faraday now logs requests to stdout if in verbose mode (`-w` or `-v`).
 
 #### Fixed
 - Fixed code styling and some documentation errors.
+- Fixed IMDb id autocorrect in `search`.
 
 
 ## 1.0.0 – 2018-04-02

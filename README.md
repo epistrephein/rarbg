@@ -7,7 +7,7 @@
 [![Security](https://hakiri.io/github/epistrephein/rarbg/master.svg)](https://hakiri.io/github/epistrephein/rarbg/master)
 [![Inline docs](http://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](http://inch-ci.org/github/epistrephein/rarbg)
 
-Ruby wrapper for RARBG Torrent API.
+Ruby wrapper for the RARBG Torrent API.
 
 ## Installation
 

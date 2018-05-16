@@ -3,7 +3,6 @@
 [![Build status](https://travis-ci.org/epistrephein/rarbg.svg?branch=master)](https://travis-ci.org/epistrephein/rarbg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/maintainability)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/test_coverage)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
-[![Dependency Status](https://gemnasium.com/badges/github.com/epistrephein/rarbg.svg)](https://gemnasium.com/epistrephein/rarbg)
 [![Security](https://hakiri.io/github/epistrephein/rarbg/master.svg)](https://hakiri.io/github/epistrephein/rarbg/master)
 [![Inline docs](http://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](http://inch-ci.org/github/epistrephein/rarbg)
 

@@ -4,7 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/maintainability)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/test_coverage)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
 [![Security](https://hakiri.io/github/epistrephein/rarbg/master.svg)](https://hakiri.io/github/epistrephein/rarbg/master)
-[![Inline docs](http://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](http://inch-ci.org/github/epistrephein/rarbg)
+[![Inline docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
 
 Ruby wrapper for the RARBG Torrent API.
 
@@ -22,7 +22,7 @@ Or add it to your Gemfile and execute `bundle install`
 gem 'rarbg', '~> 1.0'
 ```
 
-## Usage [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](http://www.rubydoc.info/github/epistrephein/rarbg)
+## Usage [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://epistrephein.github.io/rarbg)
 
 This gem wraps all API methods available from [RARBG TorrentAPI](https://torrentapi.org/apidocs_v2.txt).
 
@@ -100,7 +100,7 @@ rarbg.search(limit: 50)
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rarbg).
 
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md).
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rarbg/blob/master/CODE_OF_CONDUCT.md).
 
 You can contribute changes by forking the project and submitting a pull request. To get started:
 
@@ -112,5 +112,5 @@ You can contribute changes by forking the project and submitting a pull request.
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new pull request
 
-## License [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-This gem is released as open source under the terms of the [MIT License](LICENSE).
+## License [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/epistrephein/rarbg/blob/master/LICENSE)
+This gem is released as open source under the terms of the [MIT License](https://github.com/epistrephein/rarbg/blob/master/LICENSE).

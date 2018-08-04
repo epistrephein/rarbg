@@ -19,6 +19,9 @@ module RARBG
     # Default token expiration time.
     TOKEN_EXPIRATION = 800
 
+    # Default API rate limit.
+    RATE_LIMIT = 2.1
+
     # @return [Faraday::Connection] the Faraday connection object.
     attr_reader :conn
 
@@ -198,7 +201,7 @@ module RARBG
 
     # Perform API request.
     def request(params)
-      rate_limit!(2.1)
+      rate_limit!(RATE_LIMIT)
 
       response = @conn.get(nil, params)
       @last_request = time

@@ -16,4 +16,8 @@ RSpec.describe RARBG::API do
   it 'has a token expiration' do
     expect(RARBG::API::TOKEN_EXPIRATION).to be_kind_of(Numeric)
   end
+
+  it 'has a rate limit' do
+    expect(RARBG::API::RATE_LIMIT).to be_kind_of(Numeric)
+  end
 end

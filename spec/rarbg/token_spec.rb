@@ -25,8 +25,8 @@ RSpec.describe RARBG::API do
       expect(@rarbg.token_time).to be_a(Numeric)
     end
 
-    it 'has last request > token_time' do
-      expect(@rarbg.last_request - @rarbg.token_time).to be > 2
+    it 'respects rate limit' do
+      expect(@rarbg.last_request - @rarbg.token_time).to be >= RARBG::API::RATE_LIMIT
     end
   end
 

@@ -29,7 +29,7 @@ RSpec.describe RARBG::API do
       )
     end
 
-    it 'returns and array of hashes' do
+    it 'returns an array of hashes' do
       expect(@rarbg.search(string: 'a search string')).to all(be_an(Hash))
     end
 

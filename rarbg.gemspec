@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'epistrephein@gmail.com'
 
   spec.summary       = 'RARBG Ruby client.'
-  spec.description   = 'Ruby wrapper for RARBG Torrent API.'
+  spec.description   = 'Ruby wrapper for the RARBG Torrent API.'
   spec.homepage      = 'https://github.com/epistrephein/rarbg'
   spec.license       = 'MIT'
 
@@ -39,6 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'simplecov', '~> 0'
-  spec.add_development_dependency 'webmock', '~> 3.3'
+  spec.add_development_dependency 'webmock', '~> 3.4'
   spec.add_development_dependency 'yard', '~> 0.9'
 end

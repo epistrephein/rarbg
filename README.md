@@ -1,10 +1,11 @@
 # RARBG
 [![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen)](https://rubygems.org/gems/rarbg)
 [![Build status](https://travis-ci.org/epistrephein/rarbg.svg?branch=master)](https://travis-ci.org/epistrephein/rarbg)
+[![Dependencies](https://badges.depfu.com/badges/32877a5a58ad7eb3f5db321d85a23c1b/overview.svg)](https://depfu.com/github/epistrephein/rarbg?project_id=5845)
 [![Maintainability](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/maintainability)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/test_coverage)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
-[![Security](https://hakiri.io/github/epistrephein/rarbg/master.svg)](https://hakiri.io/github/epistrephein/rarbg/master)
 [![Inline docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
+[![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://epistrephein.github.io/rarbg)
 
 Ruby wrapper for the RARBG Torrent API.
 
@@ -22,7 +23,7 @@ Or add it to your Gemfile and execute `bundle install`
 gem 'rarbg', '~> 1.0'
 ```
 
-## Usage [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://epistrephein.github.io/rarbg)
+## Usage
 
 This gem wraps all API methods available from [RARBG TorrentAPI](https://torrentapi.org/apidocs_v2.txt).
 
@@ -96,7 +97,7 @@ rarbg.search(limit: 50)
 # => ArgumentError: At least one parameter required among string, imdb, tvdb, themoviedb for search mode.
 ```
 
-## Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blue.svg)](http://makeapullrequest.com)
+## Contributing
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rarbg).
 
@@ -112,5 +113,6 @@ You can contribute changes by forking the project and submitting a pull request.
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new pull request
 
-## License [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/epistrephein/rarbg/blob/master/LICENSE)
+## License
+
 This gem is released as open source under the terms of the [MIT License](https://github.com/epistrephein/rarbg/blob/master/LICENSE).

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 #### Added
 - `RARBG::CATEGORIES` now returns name/id pairs of all RARBG categories.
+- Faraday now uses the `APP_ID` as User agent.
 
 
 ## 1.0.1 - 2018-05-04

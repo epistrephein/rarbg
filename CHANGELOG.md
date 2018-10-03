@@ -1,10 +1,18 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.  
-The format is based on [Keep a Changelog](https://keepachangelog.com/)
+The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.0.1...master)
+
+#### Added
+- `RARBG::CATEGORIES` now returns name/id pairs of all RARBG categories.
+
+
 ## 1.0.1 - 2018-05-04
+[RubyGems](https://rubygems.org/gems/rarbg/versions/1.0.1) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.0.1) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.0.0...v1.0.1)
 
@@ -17,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 
 ## 1.0.0 – 2018-04-02
+[RubyGems](https://rubygems.org/gems/rarbg/versions/1.0.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.0.0) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.4...v1.0.0)
 
@@ -37,6 +46,7 @@ search type must be specified as a keyword argument upon `search`.
 
 
 ## 0.1.4 – 2017-12-22
+[RubyGems](https://rubygems.org/gems/rarbg/versions/0.1.4) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.4) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.3...v0.1.4)
 
@@ -45,6 +55,7 @@ search type must be specified as a keyword argument upon `search`.
 
 
 ## 0.1.3 – 2016-12-23
+[RubyGems](https://rubygems.org/gems/rarbg/versions/0.1.3) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.3) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.2...v0.1.3)
 
@@ -53,6 +64,7 @@ search type must be specified as a keyword argument upon `search`.
 
 
 ## 0.1.2 – 2016-12-21
+[RubyGems](https://rubygems.org/gems/rarbg/versions/0.1.2) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.2) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.1...v0.1.2)
 
@@ -61,6 +73,7 @@ search type must be specified as a keyword argument upon `search`.
 
 
 ## 0.1.1 – 2016-12-21
+[RubyGems](https://rubygems.org/gems/rarbg/versions/0.1.1) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.1) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.0...v0.1.1)
 

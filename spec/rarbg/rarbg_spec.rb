@@ -3,10 +3,17 @@
 RSpec.describe RARBG::API do
   it 'has a version number' do
     expect(RARBG::VERSION).not_to be nil
+    expect(RARBG::VERSION).to match(/(\d+\.)(\d+\.)(\d+)(-?[\S]+)?/)
+  end
+
+  it 'has a category list' do
+    expect(RARBG::CATEGORIES).to be_kind_of(Hash)
+    expect(RARBG::CATEGORIES).to include(/Movies/, /TV/, /Music/)
   end
 
   it 'has an app id' do
     expect(RARBG::API::APP_ID).not_to be nil
+    expect(RARBG::API::APP_ID).to be_kind_of(String)
   end
 
   it 'has the correct API endpoint' do

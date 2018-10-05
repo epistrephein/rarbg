@@ -5,7 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
-[Diff](https://github.com/epistrephein/rarbg/compare/v1.0.1...master)
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.1.0...master)
+
+
+## 1.1.0 - 2018-10-05
+[RubyGems](https://rubygems.org/gems/rarbg/versions/1.1.0) |
+[Release](https://github.com/epistrephein/rarbg/releases/tag/v1.1.0) |
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.0.1...v1.1.0)
 
 #### Added
 - `list` and `search` methods are now available from top level namespace.

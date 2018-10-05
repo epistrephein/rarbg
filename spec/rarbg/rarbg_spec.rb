@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RARBG::API do
+RSpec.describe RARBG do
   it 'has a version number' do
     expect(RARBG::VERSION).not_to be nil
     expect(RARBG::VERSION).to match(/(\d+\.)(\d+\.)(\d+)(-?[\S]+)?/)

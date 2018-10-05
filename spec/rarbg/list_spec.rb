@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RARBG::API do
+RSpec.describe 'RARBG::API#list' do
   before(:all) do
     @rarbg = RARBG::API.new
     @token = SecureRandom.hex(5)
@@ -90,6 +90,22 @@ RSpec.describe RARBG::API do
       expect { @rarbg.list }.to raise_error(
         RARBG::APIError, 'Internal Server Error (500)'
       )
+    end
+  end
+
+  context 'when called from top level namespace' do
+    let(:rarbg_module) { RARBG.clone }
+
+    before(:example) do
+      stub_list(
+        @token
+      )
+    end
+
+    it 'instantiates an API object' do
+      expect { rarbg_module.list }
+        .to change { rarbg_module.instance_variable_get(:@rarbg).class }
+        .to(RARBG::API)
     end
   end
 end

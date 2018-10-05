@@ -72,6 +72,25 @@ rarbg.search(imdb: 'tt2488496', category: [44, 45])
 rarbg.search(themoviedb: 140607, ranked: false, sort: :last)
 ```
 
+These methods are also available from the top module namespace for convenience.
+
+```ruby
+RARBG.list(sort: :leechers, min_leechers: 10)
+
+RARBG.search(string: 'Star Wars', category: [48])
+```
+
+A list of name/id pairs for each category is also available for quick lookup.
+
+```ruby
+RARBG::CATEGORIES
+# => { "Movies/XVID"     => 14,
+#      "Movies/XVID/720" => 48,
+#      "Movies/x264"     => 17,
+#      ...
+#    }
+```
+
 #### Errors
 
 API endpoint errors will raise a `RARBG::APIError` exception with the API error message.

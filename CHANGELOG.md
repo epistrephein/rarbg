@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.0.1...master)
 
 #### Added
+- `list` and `search` methods are now available from top level namespace.
 - `RARBG::CATEGORIES` now returns name/id pairs of all RARBG categories.
 - Faraday now uses the `APP_ID` as User agent.
 

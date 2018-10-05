@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RARBG::API do
+RSpec.describe 'RARBG::API#search' do
   before(:all) do
     @rarbg = RARBG::API.new
     @token = SecureRandom.hex(5)
@@ -102,6 +102,22 @@ RSpec.describe RARBG::API do
       expect { @rarbg.search(string: 'string') }.to raise_error(
         RARBG::APIError, 'Service unavailable (503)'
       )
+    end
+  end
+
+  context 'when called from top level namespace' do
+    let(:rarbg_module) { RARBG.clone }
+
+    before(:example) do
+      stub_search(
+        @token
+      )
+    end
+
+    it 'instantiates an API object' do
+      expect { rarbg_module.search(string: 'string') }
+        .to change { rarbg_module.instance_variable_get(:@rarbg).class }
+        .to(RARBG::API)
     end
   end
 end

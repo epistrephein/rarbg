@@ -8,31 +8,32 @@
 /test/version_tmp/
 /tmp/
 
-## Version specifiers:
+# Version specifiers
 Gemfile.lock
 .ruby-version
 .ruby-gemset
 
-## Environment normalization:
+# Environment normalization
 /.bundle/
 /lib/bundler/man/
 
-## RSpec:
+# RSpec
 /spec/reports/
 /spec/examples.txt
 .rspec_status
 
-## Documentation cache:
+# Documentation cache
 /.yardoc/
 /_yardoc/
 /doc/
 /rdoc/
 
-## Logs:
+# Logs
 *.log
+*.log.[0-9]*
 
-## RVM:
+# RVM
 .rvmrc
 
-## Project specific:
+# Project specific
 apidocs_v2.txt

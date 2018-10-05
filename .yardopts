@@ -1,7 +1,6 @@
 --no-private
 --protected
 --markup markdown
---output-dir docs
 -
 CHANGELOG.md
 LICENSE

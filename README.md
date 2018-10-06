@@ -1,10 +1,10 @@
 # RARBG
 [![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen)](https://rubygems.org/gems/rarbg)
-[![Build status](https://travis-ci.org/epistrephein/rarbg.svg?branch=master)](https://travis-ci.org/epistrephein/rarbg)
+[![Build Status](https://travis-ci.org/epistrephein/rarbg.svg?branch=master)](https://travis-ci.org/epistrephein/rarbg)
 [![Dependencies](https://badges.depfu.com/badges/32877a5a58ad7eb3f5db321d85a23c1b/overview.svg)](https://depfu.com/github/epistrephein/rarbg?project_id=5845)
 [![Maintainability](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/maintainability)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/test_coverage)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
-[![Inline docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
+[![Inline Docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
 [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://www.rubydoc.info/github/epistrephein/rarbg/master)
 
 Ruby wrapper for the RARBG Torrent API.
@@ -29,6 +29,8 @@ This gem wraps all API methods available from [RARBG TorrentAPI](https://torrent
 
 An authentication token is automatically generated on first request, stored with timestamp and renewed every 800 seconds.
 
+API rate limit is automatically enforced.
+
 #### Getting started
 
 Require the gem and initialize a new `RARBG::API` object.
@@ -41,10 +43,10 @@ rarbg = RARBG::API.new
 
 #### Methods
 
-Use `list` to list torrents.
+Use [`list`](https://www.rubydoc.info/github/epistrephein/rarbg/RARBG%2FAPI:list) to list torrents.
 Additional parameters are passed as keyword arguments and can be mixed together.
 
-All successful method calls return an array of hashes.
+All successful method calls return an array of hashes (or an empty array for no results).
 
 ```ruby
 # List last 100 torrents.
@@ -57,7 +59,7 @@ rarbg.list(min_seeders: 20, sort: :seeders)
 rarbg.list(format: :json_extended)
 ```
 
-Use `search` to search torrents.
+Use [`search`](https://www.rubydoc.info/github/epistrephein/rarbg/RARBG%2FAPI:search) to search torrents.
 One search type parameter among `string`, `imdb`, `themoviedb` and `tvdb` is required.
 
 ```ruby
@@ -80,7 +82,7 @@ RARBG.list(sort: :leechers, min_leechers: 10)
 RARBG.search(string: 'Star Wars', category: [48])
 ```
 
-A list of name/id pairs for each category is also available for quick lookup.
+A list of name/id pairs for each category is available for quick lookup.
 
 ```ruby
 RARBG::CATEGORIES
@@ -120,7 +122,8 @@ rarbg.search(limit: 50)
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rarbg).
 
-This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rarbg/blob/master/CODE_OF_CONDUCT.md).
+This project is intended to be a safe, welcoming space for collaboration,
+and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rarbg/blob/master/CODE_OF_CONDUCT.md).
 
 You can contribute changes by forking the project and submitting a pull request. To get started:
 

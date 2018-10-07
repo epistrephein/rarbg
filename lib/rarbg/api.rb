@@ -64,7 +64,8 @@ module RARBG
     #   Valid values: `25`, `50`, `100`. Default: `25`.
     # @option params [Integer] :min_seeders Filter results by minimum seeders.
     # @option params [Integer] :min_leechers Filter results by minimum leechers.
-    # @option params [Boolean] :ranked Include/exclude unranked results.
+    # @option params [Boolean] :ranked Include/exclude unranked torrents.
+    #   Default: `true`.
     # @option params [Symbol] :sort Sort results.
     #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
     #
@@ -96,10 +97,10 @@ module RARBG
     #
     # @param params [Hash] A customizable set of parameters.
     #
-    # @option params [String] :string Search results by string.
-    # @option params [String] :imdb Search results by IMDb id.
-    # @option params [String] :tvdb Search results by TVDB id.
-    # @option params [String] :themoviedb Search results by The Movie DB id.
+    # @option params [String] :string Search by string.
+    # @option params [String] :imdb Search by IMDb id.
+    # @option params [String] :tvdb Search by TVDB id.
+    # @option params [String] :themoviedb Search by The Movie DB id.
     # @option params [Array<Integer>] :category Filter results by category.
     # @option params [Symbol] :format Format results.
     #   Valid values: `:json`, `:json_extended`. Default: `:json`
@@ -107,7 +108,8 @@ module RARBG
     #   Valid values: `25`, `50`, `100`. Default: `25`.
     # @option params [Integer] :min_seeders Filter results by minimum seeders.
     # @option params [Integer] :min_leechers Filter results by minimum leechers.
-    # @option params [Boolean] :ranked Include/exclude unranked results.
+    # @option params [Boolean] :ranked Include/exclude unranked torrents.
+    #   Default: `true`.
     # @option params [Symbol] :sort Sort results.
     #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
     #

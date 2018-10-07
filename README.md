@@ -29,7 +29,7 @@ This gem wraps all API methods available from [RARBG TorrentAPI](https://torrent
 
 An authentication token is automatically generated on first request, stored with timestamp and renewed every 800 seconds.
 
-API rate limit is automatically enforced.
+Rate limit (1req/2s) is automatically enforced.
 
 #### Getting started
 

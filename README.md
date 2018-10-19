@@ -5,7 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/maintainability)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/test_coverage)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
 [![Inline Docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
-[![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://www.rubydoc.info/github/epistrephein/rarbg/master)
+[![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://epistrephein.github.io/rarbg)
 
 Ruby wrapper for the RARBG Torrent API.
 
@@ -43,7 +43,7 @@ rarbg = RARBG::API.new
 
 #### Methods
 
-Use [`list`](https://www.rubydoc.info/github/epistrephein/rarbg/RARBG%2FAPI:list) to list torrents.
+Use [`list`](https://epistrephein.github.io/rarbg/RARBG/API.html#list-instance_method) to list torrents.
 Additional parameters are passed as keyword arguments and can be mixed together.
 
 All successful method calls return an array of hashes (or an empty array for no results).
@@ -59,7 +59,7 @@ rarbg.list(min_seeders: 20, sort: :seeders)
 rarbg.list(format: :json_extended)
 ```
 
-Use [`search`](https://www.rubydoc.info/github/epistrephein/rarbg/RARBG%2FAPI:search) to search torrents.
+Use [`search`](https://epistrephein.github.io/rarbg/RARBG/API.html#search-instance_method) to search torrents.
 One search type parameter among `string`, `imdb`, `themoviedb` and `tvdb` is required.
 
 ```ruby

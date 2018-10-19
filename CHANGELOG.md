@@ -5,7 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
-[Diff](https://github.com/epistrephein/rarbg/compare/v1.1.0...master)
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.1.1...master)
+
+
+## 1.1.1 - 2018-10-19
+[RubyGems](https://rubygems.org/gems/rarbg/versions/1.1.1) |
+[Release](https://github.com/epistrephein/rarbg/releases/tag/v1.1.1) |
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.1.0...v1.1.1)
+
+### Changed
+- Self-host documentation on GitHub pages.
 
 
 ## 1.1.0 - 2018-10-05

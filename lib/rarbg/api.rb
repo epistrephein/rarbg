@@ -34,7 +34,7 @@ module RARBG
     # @return [Integer] the monotonic timestamp of the last request performed.
     attr_reader :last_request
 
-    # Initialize a new istance of `RARBG::API`.
+    # Initialize a new instance of `RARBG::API`.
     #
     # @example
     #   rarbg = RARBG::API.new
@@ -148,6 +148,7 @@ module RARBG
 
       return [] if response['error'] == 'No results found'
       raise APIError, response['error'] if response.key?('error')
+
       response.fetch('torrent_results', [])
     end
 
@@ -167,15 +168,14 @@ module RARBG
       Hash[params.reject { |_k, v| v.nil? }.map { |k, v| [k.to_s, v] }]
     end
 
-    # Validate search type parameter.
+    # Validate search type parameters.
     def validate_search!(params)
       search_keys = %w[string imdb tvdb themoviedb]
 
-      raise(
-        ArgumentError,
-        "At least one parameter required among #{search_keys.join(', ')} " \
-        'for search mode.'
-      ) if (params.keys & search_keys).none?
+      if (params.keys & search_keys).none?
+        raise(ArgumentError,
+              "One search parameter required among: #{search_keys.join(', ')}")
+      end
 
       search_keys.each do |k|
         params["search_#{k}"] = params.delete(k) if params.key?(k)
@@ -210,6 +210,7 @@ module RARBG
       @last_request = time
 
       return response.body if response.success?
+
       raise APIError, "#{response.reason_phrase} (#{response.status})"
     end
 

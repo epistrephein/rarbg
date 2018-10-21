@@ -8,9 +8,9 @@ require 'rarbg/api'
 module RARBG
   class << self
     %i[list search].each do |m|
-      define_method(m) do |*arg|
+      define_method(m) do |*args|
         @rarbg ||= RARBG::API.new
-        @rarbg.send(m, *arg)
+        @rarbg.send(m, *args)
       end
     end
   end

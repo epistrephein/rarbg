@@ -194,19 +194,18 @@ module RARBG
 
     # Return or renew auth token.
     def token?
-      if @token.nil? || time >= (@token_time + TOKEN_EXPIRATION)
+      if token.nil? || time >= (token_time.to_f + TOKEN_EXPIRATION)
         response = request(get_token: 'get_token')
         @token = response.fetch('token')
         @token_time = time
       end
-      @token
+      token
     end
 
     # Perform API request.
     def request(params)
       rate_limit!(RATE_LIMIT)
-
-      response = @conn.get(nil, params)
+      response = conn.get(nil, params)
       @last_request = time
 
       return response.body if response.success?
@@ -216,7 +215,7 @@ module RARBG
 
     # Rate-limit requests to comply with endpoint limits.
     def rate_limit!(seconds)
-      sleep(0.3) until time >= ((@last_request || 0) + seconds)
+      sleep(0.3) until time >= (last_request.to_f + seconds)
     end
 
     # Monotonic clock for elapsed time calculations.

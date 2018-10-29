@@ -215,7 +215,7 @@ module RARBG
 
     # Rate-limit requests to comply with endpoint limits.
     def rate_limit!(seconds)
-      sleep(0.3) until time >= (last_request.to_f + seconds)
+      sleep(0.1) until time >= (last_request.to_f + seconds)
     end
 
     # Monotonic clock for elapsed time calculations.

@@ -4,7 +4,7 @@ require 'rarbg/version'
 require 'rarbg/categories'
 require 'rarbg/api'
 
-# Module shortcut methods
+# Module namespace shortcut methods.
 module RARBG
   class << self
     %i[list search].each do |m|

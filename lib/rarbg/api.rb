@@ -183,7 +183,7 @@ module RARBG
       params
     end
 
-    # Convert ruby sugar to expected value style.
+    # Convert ruby sugar syntax to expected value format.
     def normalize
       {
         'category'    => (->(v) { v.join(';') }),

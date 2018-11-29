@@ -67,7 +67,6 @@ One search type parameter among `string`, `imdb`, `themoviedb` and `tvdb` is req
 rarbg.search(string: 'Force Awakens')
 
 # Search by IMDB id, in `Movies/x264/1080` and `Movies/x264/720`.
-# Note that 'tt' can be omitted when passing an IMDB id.
 rarbg.search(imdb: 'tt2488496', category: [44, 45])
 
 # Search unranked torrents by TheMovieDB id, sorted by last.
@@ -115,7 +114,7 @@ rarbg.list('a string instead of an hash')
 # => ArgumentError: Expected params hash
 
 rarbg.search(limit: 50)
-# => ArgumentError: At least one parameter required among string, imdb, tvdb, themoviedb for search mode.
+# => ArgumentError: One search parameter required among: string, imdb, tvdb, themoviedb
 ```
 
 ## Contributing

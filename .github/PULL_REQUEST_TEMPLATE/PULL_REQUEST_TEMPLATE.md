@@ -1,3 +1,9 @@
+---
+name: Pull request
+about: Propose a change to the codebase.
+
+---
+
 ## Pull Request description
 A clear and concise explanation of what changes your PR introduces and why this
 was needed.

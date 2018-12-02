@@ -5,7 +5,8 @@ about: Suggest an idea for this project.
 ---
 
 ## Feature description
-A clear and concise description of what the problem is and what you'd want to happen.
+A clear and concise description of what problem you're trying to solve and what
+you'd want to happen.
 
 ## Possible implementations
 If possible, suggest a way to add this feature.

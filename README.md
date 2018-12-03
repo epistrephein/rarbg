@@ -117,6 +117,13 @@ rarbg.search(limit: 50)
 # => ArgumentError: One search parameter required among: string, imdb, tvdb, themoviedb
 ```
 
+Lower level connection errors will raise `Faraday::Error` subclasses exceptions.
+
+```ruby
+rarbg.search(string: 'a timeout error')
+# => Faraday::ConnectionFailed: execution expired
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/epistrephein/rarbg).

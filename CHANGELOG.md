@@ -39,12 +39,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.0.1) |
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.0.0...v1.0.1)
 
-#### Added
-- Faraday now logs requests to stdout if in verbose mode (`-w` or `-v`).
-
 #### Fixed
 - Fixed code styling and some documentation errors.
 - Fixed IMDb id autocorrect in `search`.
+
+#### Added
+- Faraday now logs requests to stdout if in verbose mode (`-w` or `-v`).
 
 
 ## 1.0.0 – 2018-04-02
@@ -101,7 +101,7 @@ search type must be specified as a keyword argument upon `search`.
 [Diff](https://github.com/epistrephein/rarbg/compare/v0.1.0...v0.1.1)
 
 #### Fixed
-- Fix invalid gemspec
+- Fix invalid gemspec.
 
 
 ## 0.1.0 – 2016-12-21

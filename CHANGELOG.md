@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 #### Fixed
 - Fixed code styling and typos.
 
+#### Added
+- Added rubocop as development dependency.
+
 
 ## 1.1.1 - 2018-10-19
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.1.1) |

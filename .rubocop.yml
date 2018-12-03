@@ -1,0 +1,27 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - 'describe'
+    - 'context'
+  Exclude:
+    - '*.gemspec'
+
+Metrics/LineLength:
+  Max: 90
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent

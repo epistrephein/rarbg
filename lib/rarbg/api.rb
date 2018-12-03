@@ -87,8 +87,8 @@ module RARBG
       raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
       params.update(
-        mode:   'list',
-        token:  token?
+        mode:  'list',
+        token: token?
       )
       call(params)
     end
@@ -134,8 +134,8 @@ module RARBG
       raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
       params.update(
-        mode:   'search',
-        token:  token?
+        mode:  'search',
+        token: token?
       )
       call(params)
     end

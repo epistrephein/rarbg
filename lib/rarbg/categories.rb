@@ -25,6 +25,6 @@ module RARBG
     'Games/PS4'          => 53,
     'Games/XBOX-360'     => 32,
     'Software/PC ISO'    => 33,
-    'XXX'                =>  4
+    'XXX'                => 4
   }.freeze
 end

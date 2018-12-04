@@ -141,6 +141,8 @@ You can contribute changes by forking the project and submitting a pull request.
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new pull request
 
+For more information about contributing to this project, check out [CONTRIBUTING](https://github.com/epistrephein/rarbg/blob/master/CONTRIBUTING.md).
+
 ## License
 
 This gem is released as open source under the terms of the [MIT License](https://github.com/epistrephein/rarbg/blob/master/LICENSE).

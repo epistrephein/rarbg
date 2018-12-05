@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 #### Added
 - Added rubocop as development dependency.
+- Added GitHub templates for issues and pull requests.
+- Added CONTRIBUTING document for contribution guidelines.
 
 
 ## 1.1.1 - 2018-10-19

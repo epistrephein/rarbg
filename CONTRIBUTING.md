@@ -11,6 +11,10 @@ In these guidelines, you will find descriptions of some of the most common
 scenarios related to contributing and a bit of information on how to proceed to
 make sure that your submission can be evaluated swiftly and properly.
 
+This project is intended to be a safe, welcoming space for collaboration,
+and contributors are expected to adhere to the
+[Code of Conduct](https://github.com/epistrephein/rarbg/blob/master/CODE_OF_CONDUCT.md).
+
 ## Opening an issue
 
 Opening an issue on GitHub is the fastest way to get in touch with the maintainers
@@ -36,7 +40,7 @@ Pull Request on GitHub with your changes and ask a maintainer for a review.
 As an open source Ruby gem, this projects uses the most common development tools
 to test, validate, and document the code.
 
-#### Tools and integrations
+### Tools and integrations
 
 We use [RSpec](http://rspec.info/) as testing framework.  
 The test suite lives in the `spec` directory, and you can run it to test your
@@ -66,7 +70,7 @@ Code quality and test coverage are then scored via
 Finally, dependencies are kept up-to-date thanks to
 [Depfu](https://depfu.com/github/epistrephein/rarbg) integration.
 
-#### Submitting a PR
+### Submitting a PR
 
 This project follows the [GitHub flow](https://guides.github.com/introduction/flow/)
 for Pull Request submissions.

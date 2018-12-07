@@ -7,7 +7,7 @@ RSpec.describe RARBG::API do
   end
 
   context 'when token request succeeds' do
-    before(:context) do
+    before(:each) do
       stub_token(@token)
       stub_list(@token)
       @rarbg.list

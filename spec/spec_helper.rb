@@ -23,7 +23,13 @@ RSpec.configure do |config|
   # Enable temporarily focused examples and groups
   config.filter_run_when_matching :focus
 
+  # Use expect syntax
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  # Stub RATE_LIMIT to speed up tests
+  config.before(:example) do
+    stub_const('RARBG::API::RATE_LIMIT', 0.1)
   end
 end

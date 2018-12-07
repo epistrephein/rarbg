@@ -14,11 +14,11 @@ Layout/FirstParameterIndentation:
   EnforcedStyle: consistent
 
 Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
   ExcludedMethods:
     - 'describe'
     - 'context'
-  Exclude:
-    - '*.gemspec'
 
 Metrics/LineLength:
   Max: 90

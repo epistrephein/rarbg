@@ -32,6 +32,10 @@ Gemfile.lock
 *.log
 *.log.[0-9]*
 
+# Pry
+.pryrc
+.pry_history
+
 # RVM
 .rvmrc
 

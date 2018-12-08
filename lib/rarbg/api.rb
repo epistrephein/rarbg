@@ -34,6 +34,10 @@ module RARBG
     # @return [Integer] the monotonic timestamp of the last request performed.
     attr_reader :last_request
 
+    # Supported search parameters.
+    SEARCH_KEYS = %w[string imdb tvdb themoviedb].freeze
+    private_constant :SEARCH_KEYS
+
     # Initialize a new instance of `RARBG::API`.
     #
     # @example
@@ -170,14 +174,12 @@ module RARBG
 
     # Validate search type parameters.
     def validate_search!(params)
-      search_keys = %w[string imdb tvdb themoviedb]
-
-      if (params.keys & search_keys).none?
+      if (params.keys & SEARCH_KEYS).none?
         raise(ArgumentError,
-              "One search parameter required among: #{search_keys.join(', ')}")
+              "One search parameter required among: #{SEARCH_KEYS.join(', ')}")
       end
 
-      search_keys.each do |k|
+      SEARCH_KEYS.each do |k|
         params["search_#{k}"] = params.delete(k) if params.key?(k)
       end
       params

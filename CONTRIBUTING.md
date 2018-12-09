@@ -7,9 +7,9 @@ and the contributions of its users. There are many ways to contribute - from
 submitting bug reports and feature requests, to improving the documentation, or
 writing code which can be incorporated into the codebase.
 
-In these guidelines, you will find descriptions of some of the most common
-scenarios related to contributing and a bit of information on how to proceed to
-make sure that your submission can be evaluated swiftly and properly.
+In these guidelines, you will find the most common scenarios related to
+contributing and information on how to proceed to make sure that your submission
+can be evaluated swiftly and properly.
 
 This project is intended to be a safe, welcoming space for collaboration,
 and contributors are expected to adhere to the

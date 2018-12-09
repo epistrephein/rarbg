@@ -8,10 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.1.1...master)
 
 #### Fixed
-- Fixed code styling and typos.
+- Fixed code style and typos.
 
 #### Added
-- Added rubocop as development dependency.
+- Added rubocop as development dependency to enforce code style.
 - Added GitHub templates for issues and pull requests.
 - Added CONTRIBUTING document for contribution guidelines.
 

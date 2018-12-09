@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Added GitHub templates for issues and pull requests.
 - Added CONTRIBUTING document for contribution guidelines.
 
+#### Changed
+- Rate limit is now stubbed to 0.1 seconds in RSpec to speed up tests.
+
 
 ## 1.1.1 - 2018-10-19
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.1.1) |

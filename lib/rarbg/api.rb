@@ -16,10 +16,10 @@ module RARBG
     # App name identifier.
     APP_ID = 'rarbg-rubygem'
 
-    # Default token expiration time.
+    # Default token expiration time (seconds).
     TOKEN_EXPIRATION = 800
 
-    # Default API rate limit.
+    # Default API rate limit (seconds).
     RATE_LIMIT = 2.1
 
     # @return [Faraday::Connection] the Faraday connection object.
@@ -76,9 +76,9 @@ module RARBG
     # @return [Array<Hash>] Return torrents that match the specified parameters.
     #
     # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
-    #
     # @raise [RARBG::APIError] Exception raised when request fails or endpoint
     #   responds with an error.
+    # @raise [Faraday::Error] Exception raised on low-level connection errors.
     #
     # @example List last 100 ranked torrents in `Movies/x264/1080`
     #   rarbg = RARBG::API.new
@@ -120,12 +120,11 @@ module RARBG
     # @return [Array<Hash>] Return torrents that match the specified parameters.
     #
     # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
-    #
     # @raise [ArgumentError] Exception raised if no search type param is passed
     #   (among `string`, `imdb`, `tvdb`, `themoviedb`).
-    #
     # @raise [RARBG::APIError] Exception raised when request fails or endpoint
     #   responds with an error.
+    # @raise [Faraday::Error] Exception raised on low-level connection errors.
     #
     # @example Search by IMDb ID, sorted by leechers and in extended format.
     #   rarbg = RARBG::API.new
@@ -146,7 +145,7 @@ module RARBG
 
     private
 
-    # Wrap request for error handling.
+    # Wrap requests for error handling.
     def call(params)
       response = request(validate(params))
 
@@ -185,7 +184,7 @@ module RARBG
       params
     end
 
-    # Convert ruby sugar syntax to expected value format.
+    # Convert ruby syntax to expected value format.
     def normalize
       {
         'category'    => (->(v) { v.join(';') }),

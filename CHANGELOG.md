@@ -9,11 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 #### Fixed
 - Fixed code style and typos.
+- Fix gemspec to not include HTML docs and GitHub-related files.
 
 #### Added
 - Added rubocop as development dependency to enforce code style.
 - Added GitHub templates for issues and pull requests.
-- Added CONTRIBUTING document for contribution guidelines.
+- Added CONTRIBUTING document with contribution guidelines.
 
 #### Changed
 - Rate limit is now stubbed to 0.1 seconds in RSpec to speed up tests.

@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
+    f.match(%r{^(test|spec|features|docs|.github)/})
   end
   spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   spec.require_path  = 'lib'

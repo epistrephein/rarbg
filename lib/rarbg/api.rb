@@ -3,7 +3,7 @@
 require 'faraday'
 require 'faraday_middleware'
 
-# Main namespace for RARBG
+# Main namespace for RARBG.
 module RARBG
   # Default error class for the module.
   class APIError < StandardError; end
@@ -107,7 +107,7 @@ module RARBG
     # @option params [String] :themoviedb Search by The Movie DB id.
     # @option params [Array<Integer>] :category Filter results by category.
     # @option params [Symbol] :format Format results.
-    #   Valid values: `:json`, `:json_extended`. Default: `:json`
+    #   Valid values: `:json`, `:json_extended`. Default: `:json`.
     # @option params [Integer] :limit Limit results number.
     #   Valid values: `25`, `50`, `100`. Default: `25`.
     # @option params [Integer] :min_seeders Filter results by minimum seeders.

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RARBG
-  # RARBG categories
+  # RARBG categories mapping.
   CATEGORIES = {
     'Movies/XVID'        => 14,
     'Movies/XVID/720'    => 48,

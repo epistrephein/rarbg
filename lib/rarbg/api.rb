@@ -128,7 +128,7 @@ module RARBG
     #
     # @example Search by IMDb ID, sorted by leechers and in extended format.
     #   rarbg = RARBG::API.new
-    #   rarbg.search(imdb: 'tt012831', sort: :leechers, format: :json_extended)
+    #   rarbg.search(imdb: 'tt2488496', sort: :leechers, format: :json_extended)
     #
     # @example Search unranked torrents by string, with at least 2 seeders.
     #   rarbg = RARBG::API.new

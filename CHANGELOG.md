@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.1.1...master)
 
 #### Fixed
+- Fixed gemspec to not include HTML docs and GitHub-related files.
 - Fixed code style and typos.
-- Fix gemspec to not include HTML docs and GitHub-related files.
 
 #### Added
 - Added rubocop as development dependency to enforce code style.
@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Added CONTRIBUTING document with contribution guidelines.
 
 #### Changed
+- Bumped all dependencies to Stricter minor version constraint.
 - Rate limit is now stubbed to 0.1 seconds in RSpec to speed up tests.
 
 

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.author        = 'Tommaso Barbato'
   spec.email         = 'epistrephein@gmail.com'
 
-  spec.summary       = 'RARBG Ruby client.'
+  spec.summary       = 'RARBG API Ruby client.'
   spec.description   = 'Ruby wrapper for the RARBG Torrent API.'
   spec.homepage      = 'https://github.com/epistrephein/rarbg'
   spec.license       = 'MIT'

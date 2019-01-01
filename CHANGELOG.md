@@ -112,5 +112,7 @@ search type must be specified as a keyword argument upon `search`.
 
 
 ## 0.1.0 – 2016-12-21
+~~[RubyGems](https://rubygems.org/gems/rarbg/versions/0.1.0)~~ |
+[Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.0)
 
-Initial release. Yanked from [RubyGems](https://rubygems.org).
+Initial release. Yanked from RubyGems.

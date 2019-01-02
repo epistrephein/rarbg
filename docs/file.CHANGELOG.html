@@ -60,27 +60,38 @@
       <div id="content"><div id='filecontents'>
 <h1 id="label-Changelog">Changelog</h1>
 
-<p>All notable changes to this project will be documented in this file.<br>
-The format is based on <a href="https://keepachangelog.com/">Keep a
-Changelog</a>, and this project adheres to <a
-href="https://semver.org/">Semantic Versioning</a>.</p>
+<p>All notable changes to this project will be documented in this file.<br> The format is based on <a href="https://keepachangelog.com/">Keep a Changelog</a>, and this project adheres to <a href="https://semver.org/">Semantic Versioning</a>.</p>
 
-<h2 id="label-Unreleased">Unreleased</h2>
+<h2 id="label-1.2.0+-+2019-01-02">1.2.0 - 2019-01-02</h2>
 
-<p><a
-href="https://github.com/epistrephein/rarbg/compare/v1.1.1...master">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/1.2.0">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v1.2.0">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v1.1.1...v1.2.0">Diff</a></p>
 
 <h4 id="label-Fixed">Fixed</h4>
 <ul><li>
-<p>Fixed code styling and typos.</p>
+<p>Fixed gemspec to not include HTML documentation files.</p>
+</li><li>
+<p>Fixed code style and typos.</p>
+</li></ul>
+
+<h4 id="label-Added">Added</h4>
+<ul><li>
+<p>Added rubocop as development dependency to enforce code style.</p>
+</li><li>
+<p>Added GitHub templates for issues and pull requests.</p>
+</li><li>
+<p>Added CONTRIBUTING document with contribution guidelines.</p>
+</li></ul>
+
+<h4 id="label-Changed">Changed</h4>
+<ul><li>
+<p>Bumped all dependencies to stricter minor version constraint.</p>
+</li><li>
+<p>Rate limit is now stubbed to 0.1 seconds in RSpec to speed up tests.</p>
 </li></ul>
 
 <h2 id="label-1.1.1+-+2018-10-19">1.1.1 - 2018-10-19</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/1.1.1">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v1.1.1">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v1.1.0...v1.1.1">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/1.1.1">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v1.1.1">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v1.1.0...v1.1.1">Diff</a></p>
 
 <h4 id="label-Changed">Changed</h4>
 <ul><li>
@@ -89,34 +100,20 @@ href="https://github.com/epistrephein/rarbg/compare/v1.1.0...v1.1.1">Diff</a></p
 
 <h2 id="label-1.1.0+-+2018-10-05">1.1.0 - 2018-10-05</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/1.1.0">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v1.1.0">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v1.0.1...v1.1.0">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/1.1.0">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v1.1.0">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v1.0.1...v1.1.0">Diff</a></p>
 
 <h4 id="label-Added">Added</h4>
 <ul><li>
-<p><code>list</code> and <code>search</code> methods are now available from
-top level namespace.</p>
+<p><code>list</code> and <code>search</code> methods are now available from top level namespace.</p>
 </li><li>
-<p><code>RARBG::CATEGORIES</code> now returns name/id pairs of all RARBG
-categories.</p>
+<p><code>RARBG::CATEGORIES</code> now returns name/id pairs of all RARBG categories.</p>
 </li><li>
 <p>Faraday now uses the <code>APP_ID</code> as User agent.</p>
 </li></ul>
 
 <h2 id="label-1.0.1+-+2018-05-04">1.0.1 - 2018-05-04</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/1.0.1">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v1.0.1">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v1.0.0...v1.0.1">Diff</a></p>
-
-<h4 id="label-Added">Added</h4>
-<ul><li>
-<p>Faraday now logs requests to stdout if in verbose mode (<code>-w</code> or
-<code>-v</code>).</p>
-</li></ul>
+<p><a href="https://rubygems.org/gems/rarbg/versions/1.0.1">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v1.0.1">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v1.0.0...v1.0.1">Diff</a></p>
 
 <h4 id="label-Fixed">Fixed</h4>
 <ul><li>
@@ -125,22 +122,22 @@ href="https://github.com/epistrephein/rarbg/compare/v1.0.0...v1.0.1">Diff</a></p
 <p>Fixed IMDb id autocorrect in <code>search</code>.</p>
 </li></ul>
 
+<h4 id="label-Added">Added</h4>
+<ul><li>
+<p>Faraday now logs requests to stdout if in verbose mode (<code>-w</code> or <code>-v</code>).</p>
+</li></ul>
+
 <h2 id="label-1.0.0+-E2-80-93+2018-04-02">1.0.0 – 2018-04-02</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/1.0.0">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v1.0.0">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v0.1.4...v1.0.0">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/1.0.0">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v1.0.0">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v0.1.4...v1.0.0">Diff</a></p>
 
 <h4 id="label-Changed">Changed</h4>
 <ul><li>
-<p>Codebase has been completely refactored to be more resilient and
-error-free.</p>
+<p>Codebase has been completely refactored to be more resilient and error-free.</p>
 </li><li>
 <p>This release is NOT backward compatible with 0.1 versions.</p>
 </li><li>
-<p>Query parameters now use standard ruby syntax as expected and accept both
-symbol and string keys.</p>
+<p>Query parameters now use standard ruby syntax as expected and accept both symbol and string keys.</p>
 </li><li>
 <p>Compliance with API rate limiting (1req/2s) is now enforced automatically.</p>
 </li><li>
@@ -149,23 +146,16 @@ symbol and string keys.</p>
 
 <h4 id="label-Removed">Removed</h4>
 <ul><li>
-<p>Removed <code>default_params</code>: query parameters are now passed per
-request.</p>
+<p>Removed <code>default_params</code>: query parameters are now passed per request.</p>
 </li><li>
-<p>Removed <code>search_string</code>, <code>search_imdb</code>,
-<code>search_themoviedb</code>, <code>search_tvdb</code>: search type must
-be specified as a keyword argument upon <code>search</code>.</p>
+<p>Removed <code>search_string</code>, <code>search_imdb</code>, <code>search_themoviedb</code>, <code>search_tvdb</code>: search type must be specified as a keyword argument upon <code>search</code>.</p>
 </li><li>
-<p>Removed <code>RequestError</code> exception: all API-related errors now
-raise an <code>APIError</code> exception.</p>
+<p>Removed <code>RequestError</code> exception: all API-related errors now raise an <code>APIError</code> exception.</p>
 </li></ul>
 
 <h2 id="label-0.1.4+-E2-80-93+2017-12-22">0.1.4 – 2017-12-22</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.4">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.4">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v0.1.3...v0.1.4">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.4">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.4">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v0.1.3...v0.1.4">Diff</a></p>
 
 <h4 id="label-Fixed">Fixed</h4>
 <ul><li>
@@ -174,51 +164,42 @@ href="https://github.com/epistrephein/rarbg/compare/v0.1.3...v0.1.4">Diff</a></p
 
 <h2 id="label-0.1.3+-E2-80-93+2016-12-23">0.1.3 – 2016-12-23</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.3">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.3">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v0.1.2...v0.1.3">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.3">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.3">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v0.1.2...v0.1.3">Diff</a></p>
 
 <h4 id="label-Changed">Changed</h4>
 <ul><li>
-<p>Move <code>app_id</code> and <code>token</code> params to <code>call</code>
-method to prevent override.</p>
+<p>Move <code>app_id</code> and <code>token</code> params to <code>call</code> method to prevent override.</p>
 </li></ul>
 
 <h2 id="label-0.1.2+-E2-80-93+2016-12-21">0.1.2 – 2016-12-21</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.2">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.2">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v0.1.1...v0.1.2">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.2">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.2">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v0.1.1...v0.1.2">Diff</a></p>
 
 <h4 id="label-Changed">Changed</h4>
 <ul><li>
-<p>Sleep for 2 seconds after <code>get_token</code> to avoid request limit
-error.</p>
+<p>Sleep for 2 seconds after <code>get_token</code> to avoid request limit error.</p>
 </li></ul>
 
 <h2 id="label-0.1.1+-E2-80-93+2016-12-21">0.1.1 – 2016-12-21</h2>
 
-<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.1">RubyGems</a> | <a
-href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.1">Release</a>
-| <a
-href="https://github.com/epistrephein/rarbg/compare/v0.1.0...v0.1.1">Diff</a></p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.1">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.1">Release</a> | <a href="https://github.com/epistrephein/rarbg/compare/v0.1.0...v0.1.1">Diff</a></p>
 
 <h4 id="label-Fixed">Fixed</h4>
 <ul><li>
-<p>Fix invalid gemspec</p>
+<p>Fix invalid gemspec.</p>
 </li></ul>
 
 <h2 id="label-0.1.0+-E2-80-93+2016-12-21">0.1.0 – 2016-12-21</h2>
 
-<p>Initial release. Yanked from <a href="https://rubygems.org">RubyGems</a>.</p>
+<p><a href="https://rubygems.org/gems/rarbg/versions/0.1.0">RubyGems</a> | <a href="https://github.com/epistrephein/rarbg/releases/tag/v0.1.0">Release</a></p>
+
+<p>Initial release. Yanked from RubyGems.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sun Oct 21 19:20:48 2018 by
+  Generated on Wed Jan  2 08:01:46 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.4.5).
+  0.9.16 (ruby-2.6.0).
 </div>
 
     </div>

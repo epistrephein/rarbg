@@ -4,11 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## Unreleased
-[Diff](https://github.com/epistrephein/rarbg/compare/v1.1.1...master)
+## 1.2.0 - 2019-01-02
+[RubyGems](https://rubygems.org/gems/rarbg/versions/1.2.0) |
+[Release](https://github.com/epistrephein/rarbg/releases/tag/v1.2.0) |
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.1.1...v1.2.0)
 
 #### Fixed
-- Fixed gemspec to not include HTML docs and GitHub-related files.
+- Fixed gemspec to not include HTML documentation files.
 - Fixed code style and typos.
 
 #### Added
@@ -17,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Added CONTRIBUTING document with contribution guidelines.
 
 #### Changed
-- Bumped all dependencies to Stricter minor version constraint.
+- Bumped all dependencies to stricter minor version constraint.
 - Rate limit is now stubbed to 0.1 seconds in RSpec to speed up tests.
 
 
@@ -112,7 +114,7 @@ search type must be specified as a keyword argument upon `search`.
 
 
 ## 0.1.0 – 2016-12-21
-~~[RubyGems](https://rubygems.org/gems/rarbg/versions/0.1.0)~~ |
+[RubyGems](https://rubygems.org/gems/rarbg/versions/0.1.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v0.1.0)
 
 Initial release. Yanked from RubyGems.

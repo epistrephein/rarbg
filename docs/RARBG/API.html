@@ -155,7 +155,7 @@
           <div class="docstring">
   <div class="discussion">
     
-<p>Default token expiration time.</p>
+<p>Default token expiration time (seconds).</p>
 
 
   </div>
@@ -171,7 +171,7 @@
           <div class="docstring">
   <div class="discussion">
     
-<p>Default API rate limit.</p>
+<p>Default API rate limit (seconds).</p>
 
 
   </div>
@@ -435,10 +435,6 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
 45
 46
 47
@@ -448,10 +444,14 @@
 51
 52
 53
-54</pre>
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@conn</span> <span class='op'>=</span> <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='const'><span class='object_link'><a href="#API_ENDPOINT-constant" title="RARBG::API::API_ENDPOINT (constant)">API_ENDPOINT</a></span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conn'>conn</span><span class='op'>|</span>
@@ -817,8 +817,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Format results. Valid values: <code>:json</code>,
-<code>:json_extended</code>. Default: <code>:json</code>.</p>
+<p>Format results. Valid values: <code>:json</code>, <code>:json_extended</code>. Default: <code>:json</code>.</p>
 </div>
           
         </li>
@@ -831,8 +830,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Limit results number. Valid values: <code>25</code>, <code>50</code>,
-<code>100</code>. Default: <code>25</code>.</p>
+<p>Limit results number. Valid values: <code>25</code>, <code>50</code>, <code>100</code>. Default: <code>25</code>.</p>
 </div>
           
         </li>
@@ -884,8 +882,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Sort results. Valid values: <code>:last</code>, <code>:seeders</code>,
-<code>:leechers</code>. Default: <code>:last</code>.</p>
+<p>Sort results. Valid values: <code>:last</code>, <code>:seeders</code>, <code>:leechers</code>. Default: <code>:last</code>.</p>
 </div>
           
         </li>
@@ -942,6 +939,20 @@
       
     </li>
   
+    <li>
+      
+      
+        <span class='type'>(<tt>Faraday::Error</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Exception raised on low-level connection errors.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 </div><table class="source_code">
@@ -950,25 +961,25 @@
       <pre class="lines">
 
 
-86
-87
-88
-89
 90
 91
 92
 93
-94</pre>
+94
+95
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected params hash</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
-    <span class='label'>mode:</span>   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>list</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>token:</span>  <span class='id identifier rubyid_token?'>token?</span>
+    <span class='label'>mode:</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>list</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>token:</span> <span class='id identifier rubyid_token?'>token?</span>
   <span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1005,7 +1016,7 @@
 </div></p>
       
       <pre class="example code"><code><span class='id identifier rubyid_rarbg'>rarbg</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../RARBG.html" title="RARBG (module)">RARBG</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="RARBG::API (class)">API</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="RARBG::API#initialize (method)">new</a></span></span>
-<span class='id identifier rubyid_rarbg'>rarbg</span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='label'>imdb:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tt012831</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>sort:</span> <span class='symbol'>:leechers</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:json_extended</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_rarbg'>rarbg</span><span class='period'>.</span><span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='label'>imdb:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tt2488496</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>sort:</span> <span class='symbol'>:leechers</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='symbol'>:json_extended</span><span class='rparen'>)</span></code></pre>
     
       
         <p class="example_title"><div class='inline'>
@@ -1118,8 +1129,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Format results. Valid values: <code>:json</code>,
-<code>:json_extended</code>. Default: <code>:json</code></p>
+<p>Format results. Valid values: <code>:json</code>, <code>:json_extended</code>. Default: <code>:json</code>.</p>
 </div>
           
         </li>
@@ -1132,8 +1142,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Limit results number. Valid values: <code>25</code>, <code>50</code>,
-<code>100</code>. Default: <code>25</code>.</p>
+<p>Limit results number. Valid values: <code>25</code>, <code>50</code>, <code>100</code>. Default: <code>25</code>.</p>
 </div>
           
         </li>
@@ -1185,8 +1194,7 @@
           </span>
           
             &mdash; <div class='inline'>
-<p>Sort results. Valid values: <code>:last</code>, <code>:seeders</code>,
-<code>:leechers</code>. Default: <code>:last</code>.</p>
+<p>Sort results. Valid values: <code>:last</code>, <code>:seeders</code>, <code>:leechers</code>. Default: <code>:last</code>.</p>
 </div>
           
         </li>
@@ -1238,9 +1246,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised if no search type param is passed (among
-<code>string</code>, <code>imdb</code>, <code>tvdb</code>,
-<code>themoviedb</code>).</p>
+<p>Exception raised if no search type param is passed (among <code>string</code>, <code>imdb</code>, <code>tvdb</code>, <code>themoviedb</code>).</p>
 </div>
       
     </li>
@@ -1259,6 +1265,20 @@
       
     </li>
   
+    <li>
+      
+      
+        <span class='type'>(<tt>Faraday::Error</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Exception raised on low-level connection errors.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 </div><table class="source_code">
@@ -1267,25 +1287,25 @@
       <pre class="lines">
 
 
-133
-134
-135
 136
 137
 138
 139
 140
-141</pre>
+141
+142
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected params hash</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
-    <span class='label'>mode:</span>   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>search</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>token:</span>  <span class='id identifier rubyid_token?'>token?</span>
+    <span class='label'>mode:</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>search</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>token:</span> <span class='id identifier rubyid_token?'>token?</span>
   <span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1299,9 +1319,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Oct 21 19:20:48 2018 by
+  Generated on Wed Jan  2 08:01:46 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.4.5).
+  0.9.16 (ruby-2.6.0).
 </div>
 
     </div>

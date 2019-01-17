@@ -31,6 +31,8 @@ An authentication token is automatically generated on first request, stored with
 
 Rate limit (1req/2s) is automatically enforced.
 
+Check out the [full documentation](https://epistrephein.github.io/rarbg) for details on all methods and parameters.
+
 #### Getting started
 
 Require the gem and initialize a new `RARBG::API` object.

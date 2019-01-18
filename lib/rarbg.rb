@@ -7,10 +7,10 @@ require 'rarbg/api'
 # Module namespace shortcut methods.
 module RARBG
   class << self
-    %i[list search].each do |m|
-      define_method(m) do |*args|
+    %i[list search].each do |method|
+      define_method(method) do |*args|
         @rarbg ||= RARBG::API.new
-        @rarbg.send(m, *args)
+        @rarbg.send(method, *args)
       end
     end
   end

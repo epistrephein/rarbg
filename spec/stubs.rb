@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# WebMock stubs for RSpec.
 module Stubs
   API_ENDPOINT = RARBG::API::API_ENDPOINT
 

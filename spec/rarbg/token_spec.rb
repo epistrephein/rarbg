@@ -51,4 +51,26 @@ RSpec.describe RARBG::API do
       expect { @rarbg.list }.to raise_error(Faraday::ConnectionFailed)
     end
   end
+
+  context 'when forcing the token generation' do
+    before(:example) do
+      stub_token(
+        @token
+      )
+    end
+
+    it 'returns the currently valid token' do
+      expect(@rarbg.token!).to eq(@token)
+    end
+
+    context 'when called from top level namespace' do
+      let(:rarbg_module) { RARBG.clone }
+
+      it 'instantiates an API object' do
+        expect { rarbg_module.token! }
+          .to change { rarbg_module.instance_variable_get(:@rarbg).class }
+          .to(RARBG::API)
+      end
+    end
+  end
 end

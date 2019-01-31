@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 #### Fixed
 - Parse JSON only for responses with `application/json` Content-Type, preventing
-error responses to raise a `ParsingError` (#4).
+error responses to raise a `ParsingError` ([#4](https://github.com/epistrephein/rarbg/pull/4)).
 
 ## 1.2.0 - 2019-01-02
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.2.0) |

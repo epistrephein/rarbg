@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.2.0...master)
 
 #### Added
-- Added `token!` public method for standalone token generation.
+- Added `token!` public method for standalone token generation
+([#3](https://github.com/epistrephein/rarbg/pull/3)).
 
 
 ## 1.2.0 - 2019-01-02

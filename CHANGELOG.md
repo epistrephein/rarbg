@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.2.0...master)
+
+#### Fixed
+- Parse JSON only for responses with `application/json` Content-Type, preventing
+error responses to raise a `ParsingError` (#4).
+
 ## 1.2.0 - 2019-01-02
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.2.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.2.0) |

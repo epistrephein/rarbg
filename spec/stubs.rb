@@ -7,7 +7,8 @@ module Stubs
   def stub_token(token)
     stub_request(:get, API_ENDPOINT)
       .with(query: hash_including('get_token' => 'get_token'))
-      .to_return(status: 200, body: { token: token }.to_json)
+      .to_return(status: 200, body: { token: token }.to_json,
+                 headers: { 'Content-Type' => 'application/json' })
   end
 
   def stub_list(token, params = {}, result = {})
@@ -16,7 +17,8 @@ module Stubs
         mode:  'list',
         token: token
       )))
-      .to_return(status: 200, body: result.to_json)
+      .to_return(status: 200, body: result.to_json,
+                 headers: { 'Content-Type' => 'application/json' })
   end
 
   def stub_search(token, params = {}, result = {})
@@ -25,7 +27,8 @@ module Stubs
         mode:  'search',
         token: token
       )))
-      .to_return(status: 200, body: result.to_json)
+      .to_return(status: 200, body: result.to_json,
+                 headers: { 'Content-Type' => 'application/json' })
   end
 
   def stub_error(status, error)

@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Parse JSON only for responses with `application/json` Content-Type, preventing
 error responses to raise a `ParsingError` ([#4](https://github.com/epistrephein/rarbg/pull/4)).
 
+#### Added
+- Added `token!` public method for standalone token generation
+([#3](https://github.com/epistrephein/rarbg/pull/3)).
+
+
 ## 1.2.0 - 2019-01-02
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.2.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.2.0) |

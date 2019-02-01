@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## Unreleased
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.2.0...master)
 
+#### Fixed
+- Parse JSON only for responses with `application/json` Content-Type, preventing
+error responses to raise a `ParsingError` ([#4](https://github.com/epistrephein/rarbg/pull/4)).
+
 #### Added
 - Added `token!` public method for standalone token generation
 ([#3](https://github.com/epistrephein/rarbg/pull/3)).

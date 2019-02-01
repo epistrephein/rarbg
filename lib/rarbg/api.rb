@@ -45,7 +45,7 @@ module RARBG
     def initialize
       @conn = Faraday.new(url: API_ENDPOINT) do |conn|
         conn.request  :json
-        conn.response :json
+        conn.response :json, content_type: /\bjson$/
         conn.response :logger if $VERBOSE
         conn.adapter  Faraday.default_adapter
 

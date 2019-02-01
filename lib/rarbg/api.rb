@@ -143,6 +143,18 @@ module RARBG
       call(params)
     end
 
+    # Generate the authentication token.
+    #
+    # @return [String] Return the currently valid token.
+    #
+    # @example Generate the token immediately after object instantiation.
+    #   rarbg = RARBG::API.new
+    #   rarbg.token!
+
+    def token!
+      token?
+    end
+
     private
 
     # Wrap requests for error handling.

@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.2.0...master)
+
+#### Added
+- Added `token!` public method for standalone token generation
+([#3](https://github.com/epistrephein/rarbg/pull/3)).
+
+
 ## 1.2.0 - 2019-01-02
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.2.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.2.0) |

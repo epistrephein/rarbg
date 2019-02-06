@@ -53,15 +53,17 @@ RSpec.describe 'RARBG::API#search' do
   end
 
   context 'when search request is unable to find id' do
+    let(:type) { %i[imdb themoviedb tvdb].sample }
+
     before(:example) do
-      stub_list(
+      stub_search(
         @token, {},
-        { error: 'Cant find imdb in database. Are you sure this imdb exists?' }
+        { error: "Cant find #{type} in database. Are you sure this #{type} exists?" }
       )
     end
 
     it 'returns an empty array' do
-      expect(@rarbg.list).to eq([])
+      expect(@rarbg.search(type => '9999999')).to eq([])
     end
   end
 

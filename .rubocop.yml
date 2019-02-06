@@ -13,12 +13,21 @@ Layout/AlignHash:
 Layout/FirstParameterIndentation:
   EnforcedStyle: consistent
 
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
 Metrics/BlockLength:
   Exclude:
     - '*.gemspec'
   ExcludedMethods:
     - 'describe'
     - 'context'
+
+Metrics/ClassLength:
+  Enabled: false
 
 Metrics/LineLength:
   Max: 90

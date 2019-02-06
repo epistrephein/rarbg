@@ -52,7 +52,7 @@ RSpec.describe 'RARBG::API#search' do
     end
   end
 
-  context 'when search request is unable to find id' do
+  context 'when search request returns id error' do
     let(:type) { %i[imdb themoviedb tvdb].sample }
 
     before(:example) do

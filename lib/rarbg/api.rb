@@ -39,11 +39,11 @@ module RARBG
     private_constant :SEARCH_KEYS
 
     # Endpoint error strings to return as no results.
-    IGNORED_ERRORS_REGEXPS = Regexp.union([
+    NO_RESULTS_ERRORS_REGEXPS = Regexp.union([
       /no results found/i,
       /can'?t find .+? in database/i
     ])
-    private_constant :IGNORED_ERRORS_REGEXPS
+    private_constant :NO_RESULTS_ERRORS_REGEXPS
 
     # Initialize a new instance of `RARBG::API`.
     #
@@ -170,7 +170,7 @@ module RARBG
     def call(params)
       response = request(validate(params))
 
-      return [] if response['error'] =~ IGNORED_ERRORS_REGEXPS
+      return [] if response['error'] =~ NO_RESULTS_ERRORS_REGEXPS
       raise APIError, response['error'] if response.key?('error')
 
       response.fetch('torrent_results', [])

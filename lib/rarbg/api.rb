@@ -76,9 +76,10 @@ module RARBG
     # @return [Array<Hash>] Return torrents that match the specified parameters.
     #
     # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
-    # @raise [RARBG::APIError] Exception raised when request fails or endpoint
-    #   responds with an error.
-    # @raise [Faraday::Error] Exception raised on low-level connection errors.
+    # @raise [RARBG::APIError] Exception raised when the request fails or the
+    #   endpoint responds with an error.
+    # @raise [Faraday::Error] Exception raised on low-level connection errors
+    #   (e.g. timeouts).
     #
     # @example List last 100 ranked torrents in `Movies/x264/1080`
     #   rarbg = RARBG::API.new
@@ -122,9 +123,10 @@ module RARBG
     # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
     # @raise [ArgumentError] Exception raised if no search type param is passed
     #   (among `string`, `imdb`, `tvdb`, `themoviedb`).
-    # @raise [RARBG::APIError] Exception raised when request fails or endpoint
-    #   responds with an error.
-    # @raise [Faraday::Error] Exception raised on low-level connection errors.
+    # @raise [RARBG::APIError] Exception raised when the request fails or the
+    #   endpoint responds with an error.
+    # @raise [Faraday::Error] Exception raised on low-level connection errors
+    #   (e.g. timeouts).
     #
     # @example Search by IMDb ID, sorted by leechers and in extended format.
     #   rarbg = RARBG::API.new

@@ -39,12 +39,10 @@ module RARBG
     private_constant :SEARCH_KEYS
 
     # Endpoint error strings to return as no results.
-    IGNORED_ERRORS_REGEXPS = Regexp.union(
-      [
-        /no results found/i,
-        /can'?t find .+? in database/i
-      ]
-    )
+    IGNORED_ERRORS_REGEXPS = Regexp.union([
+      /no results found/i,
+      /can'?t find .+? in database/i
+    ])
     private_constant :IGNORED_ERRORS_REGEXPS
 
     # Initialize a new instance of `RARBG::API`.

@@ -12,8 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 error responses to raise a `ParsingError` ([#4](https://github.com/epistrephein/rarbg/pull/4)).
 
 #### Added
-- Added `token!` public method for standalone token generation
+- Add `token!` public method for standalone token generation
 ([#3](https://github.com/epistrephein/rarbg/pull/3)).
+
+#### Changed
+- Reduce Faraday connection timeout to 30 seconds.
 
 
 ## 1.2.0 - 2019-01-02

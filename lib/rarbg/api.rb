@@ -49,7 +49,7 @@ module RARBG
         conn.response :logger if $VERBOSE
         conn.adapter  Faraday.default_adapter
 
-        conn.options.timeout      = 90
+        conn.options.timeout      = 30
         conn.options.open_timeout = 10
 
         conn.headers[:user_agent] = APP_ID

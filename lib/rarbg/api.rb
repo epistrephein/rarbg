@@ -63,15 +63,15 @@ module RARBG
     #
     # @option params [Array<Integer>] :category Filter results by category.
     # @option params [Symbol] :format Format results.
-    #   Valid values: `:json`, `:json_extended`. Default: `:json`.
+    #   Accepted values: `:json`, `:json_extended`. Default: `:json`.
     # @option params [Integer] :limit Limit results number.
-    #   Valid values: `25`, `50`, `100`. Default: `25`.
+    #   Accepted values: `25`, `50`, `100`. Default: `25`.
     # @option params [Integer] :min_seeders Filter results by minimum seeders.
     # @option params [Integer] :min_leechers Filter results by minimum leechers.
     # @option params [Boolean] :ranked Include/exclude unranked torrents.
     #   Default: `true`.
     # @option params [Symbol] :sort Sort results.
-    #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
+    #   Accepted values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
     #
     # @return [Array<Hash>] Return torrents that match the specified parameters.
     #
@@ -108,15 +108,15 @@ module RARBG
     # @option params [String] :themoviedb Search by The Movie DB id.
     # @option params [Array<Integer>] :category Filter results by category.
     # @option params [Symbol] :format Format results.
-    #   Valid values: `:json`, `:json_extended`. Default: `:json`.
+    #   Accepted values: `:json`, `:json_extended`. Default: `:json`.
     # @option params [Integer] :limit Limit results number.
-    #   Valid values: `25`, `50`, `100`. Default: `25`.
+    #   Accepted values: `25`, `50`, `100`. Default: `25`.
     # @option params [Integer] :min_seeders Filter results by minimum seeders.
     # @option params [Integer] :min_leechers Filter results by minimum leechers.
     # @option params [Boolean] :ranked Include/exclude unranked torrents.
     #   Default: `true`.
     # @option params [Symbol] :sort Sort results.
-    #   Valid values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
+    #   Accepted values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
     #
     # @return [Array<Hash>] Return torrents that match the specified parameters.
     #

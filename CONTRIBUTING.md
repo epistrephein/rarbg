@@ -48,7 +48,8 @@ changes with `rake spec`.
 
 We also use [RuboCop](https://docs.rubocop.org/en/latest/) to enforce code style.  
 The configuration file used for this project lives in `.rubocop.yml`. You can check
-the code style of your changes with `rake rubocop`.
+the code style of your changes with `rake rubocop`.  
+Pull Requests on GitHub are automatically linted with RuboCop via [Hound](https://houndci.com/).
 
 The default Rake task, runnable using `rake`, performs code linting via Rubocop
 and then runs the RSpec tests.

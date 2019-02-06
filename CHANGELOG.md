@@ -8,8 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.2.0...master)
 
 #### Fixed
-- Return an empty array when endpoint responds with a `Can't find id` error on
-`imdb`, `themoviedb` or `tvdb` search ([#6](https://github.com/epistrephein/rarbg/pull/6)).
+- Return an empty array when endpoint responds with a `Can't find` error on
+`imdb`/`themoviedb`/`tvdb` search ([#6](https://github.com/epistrephein/rarbg/pull/6)).
 - Parse JSON only for responses with `application/json` Content-Type, preventing
 error responses to raise a `ParsingError` ([#4](https://github.com/epistrephein/rarbg/pull/4)).
 

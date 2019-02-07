@@ -89,5 +89,8 @@ to run both Rubocop and RSpec tests
 6. Push to your remote branch on GitHub (`git push origin my-new-feature`)
 7. Create a [new pull request](https://github.com/epistrephein/rarbg/pulls)
 
+By submitting a patch, you agree to allow the project owners to license your work
+under the terms of the [MIT License](https://github.com/epistrephein/rarbg/blob/master/LICENSE).
+
 As for issues, when opening a new Pull Request, please fill out the template with
 all the relevant information in order to reduce the review effort of the maintainers.

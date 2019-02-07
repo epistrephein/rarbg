@@ -52,6 +52,21 @@ RSpec.describe 'RARBG::API#search' do
     end
   end
 
+  context 'when search request returns an id error' do
+    let(:type) { %i[imdb themoviedb tvdb].sample }
+
+    before(:example) do
+      stub_search(
+        @token, {},
+        { error: "Cant find #{type} in database. Are you sure this #{type} exists?" }
+      )
+    end
+
+    it 'returns an empty array' do
+      expect(@rarbg.search(type => '9999999')).to eq([])
+    end
+  end
+
   context 'when search request parameters is not an hash' do
     before(:example) do
       stub_search(

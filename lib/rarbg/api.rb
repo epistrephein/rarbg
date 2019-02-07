@@ -38,6 +38,13 @@ module RARBG
     SEARCH_KEYS = %w[string imdb tvdb themoviedb].freeze
     private_constant :SEARCH_KEYS
 
+    # Endpoint error strings to return as no results.
+    NO_RESULTS_ERRORS_REGEXPS = Regexp.union([
+      /no results found/i,
+      /can'?t find .+? in database/i
+    ])
+    private_constant :NO_RESULTS_ERRORS_REGEXPS
+
     # Initialize a new instance of `RARBG::API`.
     #
     # @example
@@ -163,7 +170,7 @@ module RARBG
     def call(params)
       response = request(validate(params))
 
-      return [] if response['error'] == 'No results found'
+      return [] if response['error'] =~ NO_RESULTS_ERRORS_REGEXPS
       raise APIError, response['error'] if response.key?('error')
 
       response.fetch('torrent_results', [])

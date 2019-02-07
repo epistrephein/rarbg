@@ -20,7 +20,7 @@ $ gem install rarbg
 Or add it to your Gemfile and execute `bundle install`
 
 ```ruby
-gem 'rarbg', '~> 1.2'
+gem 'rarbg', '~> 1.3'
 ```
 
 ## Usage

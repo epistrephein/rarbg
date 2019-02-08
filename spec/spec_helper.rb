@@ -4,17 +4,11 @@ require 'simplecov'
 SimpleCov.start
 
 require 'bundler/setup'
-require 'webmock/rspec'
-require 'securerandom'
 require 'rarbg'
-
-require_relative 'stubs'
+require 'vcr'
+require 'webmock/rspec'
 
 RSpec.configure do |config|
-  # Attach WebMock and its stubbed requests.
-  WebMock.disable_net_connect!(allow_localhost: true)
-  config.include(Stubs)
-
   # Enable flags like --only-failures and --next-failure.
   config.example_status_persistence_file_path = '.rspec_status'
 
@@ -33,4 +27,10 @@ RSpec.configure do |config|
   config.before(:example) do
     stub_const('RARBG::API::RATE_LIMIT', 0.1)
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir     = 'spec/vcr/rarbg'
+  config.default_cassette_options = { match_requests_on: [:query] }
+  config.hook_into :webmock
 end

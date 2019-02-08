@@ -1,110 +1,84 @@
 # frozen_string_literal: true
 
 RSpec.describe 'RARBG::API#list' do
-  before(:all) do
-    @rarbg = RARBG::API.new
-    @token = SecureRandom.hex(5)
+  let(:cassette) { 'list/200' }
+  let(:subject) { RARBG::API.new }
+  let(:params) { {} }
+  let(:list) do
+    VCR.use_cassette(cassette) {
+      subject.list(params)
+    }
   end
 
-  before(:each) do
-    stub_token(@token)
+  context 'when performing a list request' do
+    it 'generate a token first' do
+      expect { list }
+        .to change { subject.token }
+        .from(nil).to(String)
+    end
+
+    it 'respects rate limit' do
+      list
+
+      expect(subject.last_request - subject.token_time)
+        .to be >= RARBG::API::RATE_LIMIT
+    end
   end
 
   context 'when list request succeeds' do
-    before(:example) do
-      stub_list(
-        @token, {},
-        { torrent_results: [
-          {
-            filename: 'first stubbed name',
-            category: 'first stubbed category',
-            download: 'first stubbed magnet link'
-          },
-          {
-            filename: 'second stubbed name',
-            category: 'second stubbed category',
-            download: 'second stubbed magnet link'
-          }
-        ] }
-      )
-    end
-
     it 'returns and array of hashes' do
-      expect(@rarbg.list).to all(be_an(Hash))
+      expect(list).to all(be_an(Hash))
     end
 
     it 'returns hashes with filename and download link' do
-      expect(@rarbg.list).to all include('filename').and include('download')
+      expect(list).to all include('filename').and include('download')
     end
   end
 
   context 'when list request returns no result' do
-    before(:example) do
-      stub_list(
-        @token, {},
-        { error: 'No results found' }
-      )
-    end
+    let(:params) { { min_seeders: 1_000_000 } }
 
     it 'returns an empty array' do
-      expect(@rarbg.list).to eq([])
+      expect(list).to eq([])
     end
   end
 
   context 'when list request parameters is not an hash' do
-    before(:example) do
-      stub_list(
-        @token
-      )
-    end
+    let(:params) { 'string' }
 
     it 'raises an ArgumentError exception' do
-      expect { @rarbg.list('string') }.to raise_error(
+      expect { subject.list('string') }.to raise_error(
         ArgumentError, 'Expected params hash'
       )
     end
   end
 
   context 'when list request has invalid parameters' do
-    before(:example) do
-      stub_list(
-        @token,
-        { min_seeders: 'string' },
-        { error: 'Invalid value for min_seeders' }
-      )
-    end
+    let(:params) { { min_seeders: 'string' } }
 
     it 'raises a RARBG::APIError exception' do
-      expect { @rarbg.list(min_seeders: 'string') }.to raise_error(
+      expect { list }.to raise_error(
         RARBG::APIError, 'Invalid value for min_seeders'
       )
     end
   end
 
   context 'when list request fails' do
-    before(:example) do
-      stub_error(500, 'Internal Server Error')
-    end
+    let(:cassette) { 'list/500' }
 
     it 'raises a RARBG::APIError exception' do
-      expect { @rarbg.list }.to raise_error(
+      expect { list }.to raise_error(
         RARBG::APIError, 'Internal Server Error (500)'
       )
     end
   end
 
   context 'when called from top level namespace' do
-    let(:rarbg_module) { RARBG.clone }
-
-    before(:example) do
-      stub_list(
-        @token
-      )
-    end
+    let(:subject) { RARBG.clone }
 
     it 'instantiates an API object' do
-      expect { rarbg_module.list }
-        .to change { rarbg_module.instance_variable_get(:@rarbg).class }
+      expect { list }
+        .to change { subject.instance_variable_get(:@rarbg).class }
         .to(RARBG::API)
     end
   end

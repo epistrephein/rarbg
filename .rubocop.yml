@@ -32,5 +32,8 @@ Metrics/ClassLength:
 Metrics/LineLength:
   Max: 90
 
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+
 Style/BracesAroundHashParameters:
   EnforcedStyle: context_dependent

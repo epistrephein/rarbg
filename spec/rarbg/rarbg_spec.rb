@@ -2,7 +2,6 @@
 
 RSpec.describe RARBG do
   it 'has a version number' do
-    expect(RARBG::VERSION).not_to be nil
     expect(RARBG::VERSION).to match(/(\d+\.)(\d+\.)(\d+)(-?[\S]+)?/)
   end
 
@@ -12,7 +11,6 @@ RSpec.describe RARBG do
   end
 
   it 'has an app id' do
-    expect(RARBG::API::APP_ID).not_to be nil
     expect(RARBG::API::APP_ID).to be_kind_of(String)
   end
 

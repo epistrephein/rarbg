@@ -1,137 +1,84 @@
 # frozen_string_literal: true
 
 RSpec.describe 'RARBG::API#search' do
-  before(:all) do
-    @rarbg = RARBG::API.new
-    @token = SecureRandom.hex(5)
-  end
-
-  before(:each) do
-    stub_token(@token)
+  let(:cassette) { 'search/200' }
+  let(:subject) { RARBG::API.new }
+  let(:params) { { string: 'Rogue One' } }
+  let(:search) do
+    VCR.use_cassette(cassette) {
+      subject.search(params)
+    }
   end
 
   context 'when search request succeeds' do
-    before(:example) do
-      stub_search(
-        @token, {},
-        { torrent_results: [
-          {
-            filename: 'first stubbed name',
-            category: 'first stubbed category',
-            download: 'first stubbed magnet link'
-          },
-          {
-            filename: 'second stubbed name',
-            category: 'second stubbed category',
-            download: 'second stubbed magnet link'
-          }
-        ] }
-      )
-    end
-
     it 'returns an array of hashes' do
-      expect(@rarbg.search(string: 'a search string')).to all(be_an(Hash))
+      expect(search).to all(be_an(Hash))
     end
 
     it 'returns hashes with filename and download link' do
-      expect(@rarbg.search(imdb: 'tt0000000'))
-        .to all include('filename').and include('download')
+      expect(search).to all include('filename').and include('download')
     end
   end
 
   context 'when search request returns no result' do
-    before(:example) do
-      stub_search(
-        @token, {},
-        { error: 'No results found' }
-      )
-    end
+    let(:params) { { string: 'awrongquery' } }
 
     it 'returns an empty array' do
-      expect(@rarbg.search(string: 'awrongquery')).to eq([])
+      expect(search).to eq([])
     end
   end
 
   context 'when search request returns an id error' do
-    let(:type) { %i[imdb themoviedb tvdb].sample }
-
-    before(:example) do
-      stub_search(
-        @token, {},
-        { error: "Cant find #{type} in database. Are you sure this #{type} exists?" }
-      )
-    end
+    let(:params) { { themoviedb: '999999' } }
 
     it 'returns an empty array' do
-      expect(@rarbg.search(type => '9999999')).to eq([])
+      expect(search).to eq([])
     end
   end
 
   context 'when search request parameters is not an hash' do
-    before(:example) do
-      stub_search(
-        @token
-      )
-    end
+    let(:params) { 'string' }
 
     it 'raises an ArgumentError exception' do
-      expect { @rarbg.search('string') }.to raise_error(
+      expect { search }.to raise_error(
         ArgumentError, 'Expected params hash'
       )
     end
   end
 
   context 'when search request is missing search type' do
-    before(:example) do
-      stub_search(
-        @token
-      )
-    end
+    let(:params) { { category: [45, 46], sort: :last } }
 
     it 'raises an ArgumentError exception' do
-      expect { @rarbg.search(category: [45, 46], sort: :last) }
-        .to raise_error(ArgumentError)
+      expect { search }.to raise_error(ArgumentError)
     end
   end
 
   context 'when search request has invalid parameters' do
-    before(:example) do
-      stub_search(
-        @token, {},
-        { error: 'Invalid sort' }
-      )
-    end
+    let(:params) { { string: 'Rogue One', sort: :wrongsort } }
 
     it 'raises a RARBG::APIError exception' do
-      expect { @rarbg.search(string: 'string', sort: 'wrongsort') }
-        .to raise_error(RARBG::APIError, 'Invalid sort')
+      expect { search }.to raise_error(RARBG::APIError, 'Invalid sort')
     end
   end
 
   context 'when search request fails' do
-    before(:example) do
-      stub_error(503, 'Service unavailable')
-    end
+    let(:cassette) { 'search/503' }
 
     it 'raises a RARBG::APIError exception' do
-      expect { @rarbg.search(string: 'string') }.to raise_error(
-        RARBG::APIError, 'Service unavailable (503)'
+      expect { search }.to raise_error(
+        RARBG::APIError, 'Service Unavailable (503)'
       )
     end
   end
 
   context 'when called from top level namespace' do
-    let(:rarbg_module) { RARBG.clone }
-
-    before(:example) do
-      stub_search(
-        @token
-      )
-    end
+    let(:subject) { RARBG.clone }
+    let(:params) { { string: 'Rogue One' } }
 
     it 'instantiates an API object' do
-      expect { rarbg_module.search(string: 'string') }
-        .to change { rarbg_module.instance_variable_get(:@rarbg).class }
+      expect { search }
+        .to change { subject.instance_variable_get(:@rarbg).class }
         .to(RARBG::API)
     end
   end

@@ -37,7 +37,7 @@ simply open a regular issue and describe the problem in the clearest way possibl
 If you would like to contribute to the project by writing code, you can open a
 Pull Request on GitHub with your changes and ask a maintainer for a review.
 
-As an open source Ruby gem, this projects uses the most common development tools
+As an open source Ruby gem, this project uses the most common development tools
 to test, validate, and document the code.
 
 ### Tools and integrations

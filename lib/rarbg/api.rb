@@ -34,17 +34,6 @@ module RARBG
     # @return [Integer] the monotonic timestamp of the last request performed.
     attr_reader :last_request
 
-    # Supported search parameters.
-    SEARCH_KEYS = %w[string imdb tvdb themoviedb].freeze
-    private_constant :SEARCH_KEYS
-
-    # Endpoint error strings to return as no results.
-    NO_RESULTS_ERRORS_REGEXPS = Regexp.union([
-      /no results found/i,
-      /can'?t find .+? in database/i
-    ])
-    private_constant :NO_RESULTS_ERRORS_REGEXPS
-
     # Initialize a new instance of `RARBG::API`.
     #
     # @example
@@ -165,6 +154,15 @@ module RARBG
     end
 
     private
+
+    # Supported search parameters.
+    SEARCH_KEYS = %w[string imdb tvdb themoviedb].freeze
+
+    # Endpoint error strings to return as no results.
+    NO_RESULTS_ERRORS_REGEXPS = Regexp.union([
+      /no results found/i,
+      /can'?t find .+? in database/i
+    ])
 
     # Wrap requests for error handling.
     def call(params)

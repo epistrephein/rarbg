@@ -7,7 +7,7 @@
 [![Inline Docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
 [![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://epistrephein.github.io/rarbg)
 
-Ruby wrapper for the RARBG Torrent API.
+Ruby client for the RARBG Torrent API.
 
 ## Installation
 

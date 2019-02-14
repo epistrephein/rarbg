@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'epistrephein@gmail.com'
 
   spec.summary       = 'RARBG API Ruby client.'
-  spec.description   = 'Ruby wrapper for the RARBG Torrent API.'
+  spec.description   = 'Ruby client for the RARBG Torrent API.'
   spec.homepage      = 'https://github.com/epistrephein/rarbg'
   spec.license       = 'MIT'
 

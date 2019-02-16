@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.3.0...master)
+
+#### Fixed
+- Fix typos and code style here and there.
+
+
 ## 1.3.0 - 2019-02-07
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.3.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.3.0) |

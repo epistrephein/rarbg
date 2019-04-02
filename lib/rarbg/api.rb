@@ -157,12 +157,14 @@ module RARBG
 
     # Supported search parameters.
     SEARCH_KEYS = %w[string imdb tvdb themoviedb].freeze
+    private_constant :SEARCH_KEYS
 
     # Endpoint error strings to return as no results.
     NO_RESULTS_ERRORS_REGEXPS = Regexp.union([
       /no results found/i,
       /can'?t find .+? in database/i
     ])
+    private_constant :NO_RESULTS_ERRORS_REGEXPS
 
     # Wrap requests for error handling.
     def call(params)

@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 #### Fixed
 - Fix typos and code style here and there.
 
+#### Changed
+- Allow any Bundler version equal or greater than 1.15.
+
 
 ## 1.3.0 - 2019-02-07
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.3.0) |

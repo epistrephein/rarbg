@@ -2,8 +2,6 @@ sudo: false
 language: ruby
 cache: bundler
 script: bundle exec rspec
-before_install:
-  - gem install bundler -v '< 2'
 rvm:
   - 2.6.3
   - 2.5.5

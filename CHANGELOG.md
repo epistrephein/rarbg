@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Fix typos and code style here and there.
 
 #### Changed
-- Allow any Bundler version equal or greater than 1.15.
+- Allow any Bundler version equal or greater than 1.15 ([#9](https://github.com/epistrephein/rarbg/pull/9)).
 
 
 ## 1.3.0 - 2019-02-07

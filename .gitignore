@@ -10,6 +10,7 @@
 
 # Version specifiers
 Gemfile.lock
+gems.locked
 .ruby-version
 .ruby-gemset
 

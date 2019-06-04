@@ -11,8 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Fix typos and code style here and there.
 
 #### Changed
-- Bump RuboCop development dependency minimum version to `0.64` and update Hound
-linter version ([#10](https://github.com/epistrephein/rarbg/pull/10)).
+- Bump RuboCop development dependency minimum version to `0.71` and update Hound
+linter version ([#10](https://github.com/epistrephein/rarbg/pull/12)).
 - Allow any Bundler version equal or greater than `1.15` ([#9](https://github.com/epistrephein/rarbg/pull/9))
 but lesser than `3.0` ([#10](https://github.com/epistrephein/rarbg/pull/10)).
 

@@ -4,9 +4,9 @@ cache: bundler
 script: bundle exec rspec
 rvm:
   - 2.7
-  - 2.6.3
-  - 2.5.5
-  - 2.4.6
+  - 2.6
+  - 2.5
+  - 2.4
 branches:
   only: master
 notifications:

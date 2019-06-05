@@ -6,7 +6,7 @@
 <title>
   Class: RARBG::API
   
-    &mdash; Documentation by YARD 0.9.18
+    &mdash; Documentation by YARD 0.9.19
   
 </title>
 
@@ -459,23 +459,23 @@
       <pre class="lines">
 
 
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
 52
 53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65</pre>
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@conn</span> <span class='op'>=</span> <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='const'><span class='object_link'><a href="#API_ENDPOINT-constant" title="RARBG::API::API_ENDPOINT (constant)">API_ENDPOINT</a></span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conn'>conn</span><span class='op'>|</span>
@@ -985,18 +985,18 @@
       <pre class="lines">
 
 
-98
-99
-100
-101
-102
-103
-104
-105
-106</pre>
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected params hash</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
@@ -1311,18 +1311,18 @@
       <pre class="lines">
 
 
-145
-146
-147
-148
-149
-150
-151
-152
-153</pre>
+134
+135
+136
+137
+138
+139
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 134</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected params hash</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
@@ -1395,12 +1395,12 @@
       <pre class="lines">
 
 
-163
-164
-165</pre>
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 163</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token!'>token!</span>
   <span class='id identifier rubyid_token?'>token?</span>
@@ -1415,9 +1415,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Feb  7 07:34:48 2019 by
+  Generated on Wed Jun  5 07:42:54 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.18 (ruby-2.6.1).
+  0.9.19 (ruby-2.6.3).
 </div>
 
     </div>

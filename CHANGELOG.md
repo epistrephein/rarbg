@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.4.0...master)
+
+#### Changed
+- Update version constraints for Rake, following v13.0 release ([#15](https://github.com/epistrephein/rarbg/pull/15)).
+
+
 ## 1.4.0 - 2019-06-05
 [RubyGems](https://rubygems.org/gems/rarbg/versions/1.4.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v1.4.0) |

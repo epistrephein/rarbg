@@ -25,7 +25,7 @@ gem 'rarbg', '~> 1.4'
 
 ## Usage
 
-This gem wraps all API methods available from [RARBG TorrentAPI](https://torrentapi.org/apidocs_v2.txt).
+This gem wraps all API methods available from [RARBG TorrentAPI](https://torrentapi.org/apidocs_v2.txt?&app_id=rarbg-rubygem).
 
 An authentication token is automatically generated on first request, stored with timestamp and renewed every 800 seconds.
 

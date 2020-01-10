@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'faraday'
-require 'faraday_middleware'
+require 'json'
 
 # Main namespace for RARBG.
 module RARBG
@@ -40,8 +40,6 @@ module RARBG
     #   rarbg = RARBG::API.new
     def initialize
       @conn = Faraday.new(url: API_ENDPOINT) do |conn|
-        conn.request  :json
-        conn.response :json, content_type: /\bjson$/
         conn.response :logger if $VERBOSE
         conn.adapter  Faraday.default_adapter
 
@@ -230,7 +228,7 @@ module RARBG
       response = conn.get(nil, params)
       @last_request = time
 
-      return response.body if response.success?
+      return JSON.parse(response.body) if response.success?
 
       raise APIError, "#{response.reason_phrase} (#{response.status})"
     end

@@ -132,8 +132,6 @@ Bug reports and pull requests are welcome on [GitHub](https://github.com/epistre
 This project is intended to be a safe, welcoming space for collaboration,
 and contributors are expected to adhere to the [Code of Conduct](https://github.com/epistrephein/rarbg/blob/master/CODE_OF_CONDUCT.md).
 
-For more information about contributing to this project, check out [CONTRIBUTING](https://github.com/epistrephein/rarbg/blob/master/CONTRIBUTING.md).
-
 You can contribute changes by forking the project and submitting a pull request. To get started:
 
 1. Fork the repo
@@ -143,6 +141,8 @@ You can contribute changes by forking the project and submitting a pull request.
 5. Pass the test suite (`rake spec`)
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new pull request
+
+For more information about contributing to this project, check out [CONTRIBUTING](https://github.com/epistrephein/rarbg/blob/master/CONTRIBUTING.md).
 
 ## License
 

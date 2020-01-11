@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(spec|docs)/})
   end
-  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   spec.require_path  = 'lib'
 
   spec.metadata = {

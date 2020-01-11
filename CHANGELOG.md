@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.4.0...master)
 
 #### Changed
+- Cleanup gemspec file from unnecessary files and attributes ([#21](https://github.com/epistrephein/rarbg/pull/21)).
 - Update version constraints for Rake, following v13.0 release ([#15](https://github.com/epistrephein/rarbg/pull/15)).
 - Update version constraints for RuboCop in order to avoid breaking changes ([#16](https://github.com/epistrephein/rarbg/pull/16)).
 

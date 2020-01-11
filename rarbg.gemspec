@@ -15,9 +15,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/epistrephein/rarbg'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(spec|docs)/})
-  end
+  spec.files         = Dir['lib/**/*.rb', 'rarbg.gemspec']
+  spec.files        += Dir['README.md', 'CHANGELOG.md', 'LICENSE']
   spec.require_path  = 'lib'
 
   spec.metadata = {

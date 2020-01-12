@@ -28,20 +28,20 @@ module RARBG
     attr_reader :conn
 
     # The token used for authentication. This is generated and rate limited
-    #   automatically when calling `list` or `search`, but can also be generated
-    #   forcefully calling `token!`.
+    #   automatically when calling {#list} or {#search}, but can also be
+    #   generated forcefully calling {#token!}.
     #
     # @return [String] The token used for authentication.
     attr_reader :token
 
     # The monotonic timestamp of the token request. Used to compute the next
-    #   required request based on `TOKEN_EXPIRATION`.
+    #   required request based on {TOKEN_EXPIRATION}.
     #
     # @return [Float] The monotonic timestamp of the token request.
     attr_reader :token_time
 
     # The monotonic timestamp of the last request performed. Used to comply with
-    #   the endpoint rate limit based on `RATE_LIMIT`.
+    #   the endpoint rate limit based on {RATE_LIMIT}
     #
     # @return [Float] The monotonic timestamp of the last request performed.
     attr_reader :last_request

@@ -24,12 +24,15 @@ module RARBG
 
     # The underlying `Faraday::Connection` object used to perform requests.
     #
+    # @note For more info regarding this object refer to the
+    #   {https://www.rubydoc.info/gems/faraday/Faraday Faraday documentation}.
+    #
     # @return [Faraday::Connection] The Faraday connection object.
     attr_reader :conn
 
     # The token used for authentication. This is generated and rate limited
     #   automatically when calling {#list} or {#search}, but can also be
-    #   generated forcefully calling {#token!}.
+    #   generated forcefully using {#token!}.
     #
     # @return [String] The token used for authentication.
     attr_reader :token

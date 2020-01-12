@@ -85,10 +85,7 @@ module RARBG
     def list(params = {})
       raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
-      params.update(
-        mode:  'list',
-        token: token?
-      )
+      params.update(mode: 'list', token: token?)
       call(params)
     end
 
@@ -132,10 +129,7 @@ module RARBG
     def search(params = {})
       raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
-      params.update(
-        mode:  'search',
-        token: token?
-      )
+      params.update(mode: 'search', token: token?)
       call(params)
     end
 
@@ -182,6 +176,7 @@ module RARBG
       normalize.each_pair do |key, proc|
         params[key] = proc.call(params[key]) if params.key?(key)
       end
+
       params
     end
 
@@ -200,6 +195,7 @@ module RARBG
       SEARCH_KEYS.each do |k|
         params["search_#{k}"] = params.delete(k) if params.key?(k)
       end
+
       params
     end
 
@@ -215,17 +211,19 @@ module RARBG
     # Return or renew auth token.
     def token?
       if token.nil? || time >= (token_time.to_f + TOKEN_EXPIRATION)
-        response = request(get_token: 'get_token')
-        @token = response.fetch('token')
+        response    = request(get_token: 'get_token')
+        @token      = response.fetch('token')
         @token_time = time
       end
+
       token
     end
 
     # Perform API request.
     def request(params)
       rate_limit!(RATE_LIMIT)
-      response = conn.get(nil, params)
+
+      response      = conn.get(nil, params)
       @last_request = time
 
       return JSON.parse(response.body) if response.success?

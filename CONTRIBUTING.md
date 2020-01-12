@@ -56,8 +56,8 @@ and then runs the RSpec tests.
 
 Documentation is written as [YARD](https://yardoc.org/) docblocks in the Ruby code.  
 This is rendered as self-hosted Web pages on [GitHub pages](https://epistrephein.github.io/rarbg/).
-Sources are stored in the repository under the `docs` folder and can be automatically
-generated and updated via `rake yard`.  
+Sources are stored in the repository under the `docs/` directory and can be
+automatically generated and updated via `rake yard`.  
 The completeness of the documentation is then measured via
 [Inch CI](https://inch-ci.org/github/epistrephein/rarbg).
 

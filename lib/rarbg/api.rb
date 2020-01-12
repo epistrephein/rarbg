@@ -35,7 +35,7 @@ module RARBG
     attr_reader :token
 
     # The monotonic timestamp of the token request. Used to compute the next
-    #   required request based on {TOKEN_EXPIRATION}.
+    #   required token request based on {TOKEN_EXPIRATION}.
     #
     # @return [Float] The monotonic timestamp of the token request.
     attr_reader :token_time

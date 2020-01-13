@@ -30,24 +30,24 @@ module RARBG
     # @return [Faraday::Connection] The Faraday connection object.
     attr_reader :conn
 
-    # The token used for authentication. This is generated and rate limited
-    #   automatically when calling {#list} or {#search}, but can also be
-    #   generated forcefully using {#token!}.
+    # The monotonic timestamp of the last request performed.
+    #   Used to comply with the endpoint rate limit based on {RATE_LIMIT}.
+    #
+    # @return [Float] The monotonic timestamp of the last request performed.
+    attr_reader :last_request
+
+    # The token used for authentication.
+    #   This is generated and rate limited automatically when calling {#list}
+    #   or {#search}, but can also be generated forcefully using {#token!}.
     #
     # @return [String] The token used for authentication.
     attr_reader :token
 
-    # The monotonic timestamp of the token request. Used to compute the next
-    #   required token request based on {TOKEN_EXPIRATION}.
+    # The monotonic timestamp of the token request.
+    #   Used to compute the next required token request based on {TOKEN_EXPIRATION}.
     #
     # @return [Float] The monotonic timestamp of the token request.
     attr_reader :token_time
-
-    # The monotonic timestamp of the last request performed. Used to comply with
-    #   the endpoint rate limit based on {RATE_LIMIT}
-    #
-    # @return [Float] The monotonic timestamp of the last request performed.
-    attr_reader :last_request
 
     # Initialize a new instance of `RARBG::API`.
     #

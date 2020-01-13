@@ -28,7 +28,7 @@ module RARBG
     #   {https://www.rubydoc.info/gems/faraday/Faraday Faraday documentation}.
     #
     # @return [Faraday::Connection] The Faraday connection object.
-    attr_reader :conn
+    attr_reader :connection
 
     # The monotonic timestamp of the last request performed.
     #   Used to comply with the endpoint rate limit based on {RATE_LIMIT}.
@@ -54,7 +54,7 @@ module RARBG
     # @example
     #   rarbg = RARBG::API.new
     def initialize
-      @conn = Faraday.new(url: API_ENDPOINT) do |conn|
+      @connection = Faraday.new(url: API_ENDPOINT) do |conn|
         conn.request  :json
         conn.response :json, content_type: /\bjson$/
         conn.response :logger if $VERBOSE
@@ -245,7 +245,7 @@ module RARBG
     # Perform API request.
     def request(params)
       rate_limit!(RATE_LIMIT)
-      response = conn.get(nil, params)
+      response = connection.get(nil, params)
       @last_request = time
 
       return response.body if response.success?

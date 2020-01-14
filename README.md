@@ -91,7 +91,6 @@ RARBG::CATEGORIES
 #      "Movies/XVID/720" => 48,
 #      "Movies/x264"     => 17,
 #      ...
-#    }
 ```
 
 #### Errors

@@ -8,10 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 [Diff](https://github.com/epistrephein/rarbg/compare/v1.4.0...master)
 
 #### Changed
-- Update Faraday to 1.0 and drop faraday_middleware dependency ([#17](https://github.com/epistrephein/rarbg/pull/17)).
+- Update Faraday to v1.0 and drop `faraday_middleware` dependency ([#17](https://github.com/epistrephein/rarbg/pull/17)).
 - Update Ruby minimum version to 2.3 ([#17](https://github.com/epistrephein/rarbg/pull/17)).
-- Update version constraints for RuboCop in order to avoid breaking changes ([#16](https://github.com/epistrephein/rarbg/pull/16)).
+- Rename attr_reader `conn` to `connection` ([#18](https://github.com/epistrephein/rarbg/pull/18)).
 - Update version constraints for Rake, following v13.0 release ([#15](https://github.com/epistrephein/rarbg/pull/15)).
+- Update version constraints for RuboCop in order to avoid breaking changes ([#16](https://github.com/epistrephein/rarbg/pull/16)).
+- Tweak and reorder documentation ([#18](https://github.com/epistrephein/rarbg/pull/18)).
 
 
 ## 1.4.0 - 2019-06-05

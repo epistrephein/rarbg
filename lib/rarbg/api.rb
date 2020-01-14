@@ -5,7 +5,7 @@ require 'json'
 
 # Main namespace for RARBG.
 module RARBG
-  # Default error class for the module.
+  # Default error class for the module. Wraps exceptions raised at API level.
   class APIError < StandardError; end
 
   # Base class for RARBG API.
@@ -22,24 +22,39 @@ module RARBG
     # Default API rate limit (seconds).
     RATE_LIMIT = 2.1
 
-    # @return [Faraday::Connection] the Faraday connection object.
-    attr_reader :conn
+    # The underlying `Faraday::Connection` object used to perform requests.
+    #
+    # @note For more info regarding this object refer to the
+    #   {https://www.rubydoc.info/gems/faraday/Faraday Faraday documentation}.
+    #
+    # @return [Faraday::Connection] The Faraday connection object.
+    attr_reader :connection
 
-    # @return [String] the token used for authentication.
+    # The monotonic timestamp of the last request performed.
+    #   Used to comply with the endpoint rate limit based on {RATE_LIMIT}.
+    #
+    # @return [Float] The monotonic timestamp of the last request performed.
+    attr_reader :last_request
+
+    # The token used for authentication.
+    #   This is generated and rate limited automatically when calling {#list}
+    #   or {#search}, but can also be generated forcefully using {#token!}.
+    #
+    # @return [String] The token used for authentication.
     attr_reader :token
 
-    # @return [Integer] the monotonic timestamp of the token request.
+    # The monotonic timestamp of the token request.
+    #   Used to compute the next required token request based on {TOKEN_EXPIRATION}.
+    #
+    # @return [Float] The monotonic timestamp of the token request.
     attr_reader :token_time
-
-    # @return [Integer] the monotonic timestamp of the last request performed.
-    attr_reader :last_request
 
     # Initialize a new instance of `RARBG::API`.
     #
     # @example
     #   rarbg = RARBG::API.new
     def initialize
-      @conn = Faraday.new(url: API_ENDPOINT) do |conn|
+      @connection = Faraday.new(url: API_ENDPOINT) do |conn|
         conn.response :logger if $VERBOSE
         conn.adapter  Faraday.default_adapter
 
@@ -53,35 +68,37 @@ module RARBG
 
     # List torrents.
     #
-    # @param params [Hash] A customizable set of parameters.
-    #
-    # @option params [Array<Integer>] :category Filter results by category.
-    # @option params [Symbol] :format Format results.
-    #   Accepted values: `:json`, `:json_extended`. Default: `:json`.
-    # @option params [Integer] :limit Limit results number.
-    #   Accepted values: `25`, `50`, `100`. Default: `25`.
-    # @option params [Integer] :min_seeders Filter results by minimum seeders.
-    # @option params [Integer] :min_leechers Filter results by minimum leechers.
-    # @option params [Boolean] :ranked Include/exclude unranked torrents.
-    #   Default: `true`.
-    # @option params [Symbol] :sort Sort results.
-    #   Accepted values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
-    #
-    # @return [Array<Hash>] Return torrents that match the specified parameters.
-    #
-    # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
-    # @raise [RARBG::APIError] Exception raised when the request fails or the
-    #   endpoint responds with an error.
-    # @raise [Faraday::Error] Exception raised on low-level connection errors
-    #   (e.g. timeouts).
-    #
-    # @example List last 100 ranked torrents in `Movies/x264/1080`
+    # @example List last 100 ranked torrents in `Movies/x264/1080` category
     #   rarbg = RARBG::API.new
     #   rarbg.list(limit: 100, ranked: true, category: [44])
     #
     # @example List torrents with at least 50 seeders
     #   rarbg = RARBG::API.new
     #   rarbg.list(min_seeders: 50)
+    #
+    # @param params [Hash] A customizable set of parameters.
+    #
+    # @option params [Array<Integer>] :category Filter results by category.
+    # @option params [Symbol] :format Format results.
+    #   Accepted values: `:json`, `:json_extended`.
+    #   Default: `:json`.
+    # @option params [Integer] :limit Limit results number.
+    #   Accepted values: `25`, `50`, `100`.
+    #   Default: `25`.
+    # @option params [Integer] :min_seeders Filter results by minimum seeders.
+    # @option params [Integer] :min_leechers Filter results by minimum leechers.
+    # @option params [Boolean] :ranked Include/exclude unranked torrents.
+    #   Default: `true`.
+    # @option params [Symbol] :sort Sort results.
+    #   Accepted values: `:last`, `:seeders`, `:leechers`.
+    #   Default: `:last`.
+    #
+    # @return [Array<Hash>] Torrents that match the specified parameters.
+    #
+    # @raise [ArgumentError] If `params` is not an `Hash`.
+    # @raise [RARBG::APIError] If the request fails or the endpoint responds
+    #   with an error.
+    # @raise [Faraday::Error] On low-level connection errors (e.g. timeouts).
     def list(params = {})
       raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
@@ -91,6 +108,14 @@ module RARBG
 
     # Search torrents.
     #
+    # @example Search by IMDb ID, sorted by leechers and in extended format.
+    #   rarbg = RARBG::API.new
+    #   rarbg.search(imdb: 'tt2488496', sort: :leechers, format: :json_extended)
+    #
+    # @example Search unranked torrents by string, with at least 2 seeders.
+    #   rarbg = RARBG::API.new
+    #   rarbg.search(string: 'Star Wars', ranked: false, min_seeders: 2)
+    #
     # @param params [Hash] A customizable set of parameters.
     #
     # @option params [String] :string Search by string.
@@ -99,33 +124,27 @@ module RARBG
     # @option params [String] :themoviedb Search by The Movie DB id.
     # @option params [Array<Integer>] :category Filter results by category.
     # @option params [Symbol] :format Format results.
-    #   Accepted values: `:json`, `:json_extended`. Default: `:json`.
+    #   Accepted values: `:json`, `:json_extended`.
+    #   Default: `:json`.
     # @option params [Integer] :limit Limit results number.
-    #   Accepted values: `25`, `50`, `100`. Default: `25`.
+    #   Accepted values: `25`, `50`, `100`.
+    #   Default: `25`.
     # @option params [Integer] :min_seeders Filter results by minimum seeders.
     # @option params [Integer] :min_leechers Filter results by minimum leechers.
     # @option params [Boolean] :ranked Include/exclude unranked torrents.
     #   Default: `true`.
     # @option params [Symbol] :sort Sort results.
-    #   Accepted values: `:last`, `:seeders`, `:leechers`. Default: `:last`.
+    #   Accepted values: `:last`, `:seeders`, `:leechers`.
+    #   Default: `:last`.
     #
-    # @return [Array<Hash>] Return torrents that match the specified parameters.
+    # @return [Array<Hash>] Torrents that match the specified parameters.
     #
-    # @raise [ArgumentError] Exception raised if `params` is not an `Hash`.
-    # @raise [ArgumentError] Exception raised if no search type param is passed
+    # @raise [ArgumentError] If `params` is not an `Hash`.
+    # @raise [ArgumentError] If no search type param is passed
     #   (among `string`, `imdb`, `tvdb`, `themoviedb`).
-    # @raise [RARBG::APIError] Exception raised when the request fails or the
-    #   endpoint responds with an error.
-    # @raise [Faraday::Error] Exception raised on low-level connection errors
-    #   (e.g. timeouts).
-    #
-    # @example Search by IMDb ID, sorted by leechers and in extended format.
-    #   rarbg = RARBG::API.new
-    #   rarbg.search(imdb: 'tt2488496', sort: :leechers, format: :json_extended)
-    #
-    # @example Search unranked torrents by string, with at least 2 seeders.
-    #   rarbg = RARBG::API.new
-    #   rarbg.search(string: 'Star Wars', ranked: false, min_seeders: 2)
+    # @raise [RARBG::APIError] If the request fails or the endpoint responds
+    #   with an error.
+    # @raise [Faraday::Error] On low-level connection errors (e.g. timeouts).
     def search(params = {})
       raise ArgumentError, 'Expected params hash' unless params.is_a?(Hash)
 
@@ -135,12 +154,11 @@ module RARBG
 
     # Generate the authentication token.
     #
-    # @return [String] Return the currently valid token.
-    #
     # @example Generate the token immediately after object instantiation.
     #   rarbg = RARBG::API.new
     #   rarbg.token!
-
+    #
+    # @return [String] The currently valid authentication token.
     def token!
       token?
     end
@@ -223,7 +241,7 @@ module RARBG
     def request(params)
       rate_limit!(RATE_LIMIT)
 
-      response      = conn.get(nil, params)
+      response      = connection.get(nil, params)
       @last_request = time
 
       return JSON.parse(response.body) if response.success?

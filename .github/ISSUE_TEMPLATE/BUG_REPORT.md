@@ -5,8 +5,7 @@ about: Report something that isn't working as expected.
 ---
 
 ## Bug description
-A clear and concise description of what the bug is, what you expected to happen
-and what happened instead.
+A clear and concise description of what the bug is, what you expected to happen and what happened instead.
 
 ## Steps to reproduce
 1. Instantiate object...

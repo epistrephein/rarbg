@@ -15,12 +15,6 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/epistrephein/rarbg'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(spec|docs)/})
-  end
-  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  spec.require_path  = 'lib'
-
   spec.metadata = {
     'bug_tracker_uri'   => 'https://github.com/epistrephein/rarbg/issues',
     'changelog_uri'     => 'https://github.com/epistrephein/rarbg/blob/master/CHANGELOG.md',
@@ -28,6 +22,10 @@ Gem::Specification.new do |spec|
     'homepage_uri'      => 'https://github.com/epistrephein/rarbg',
     'source_code_uri'   => 'https://github.com/epistrephein/rarbg'
   }
+
+  spec.files         = Dir['lib/**/*.rb', 'rarbg.gemspec']
+  spec.files        += Dir['README.md', 'CHANGELOG.md', 'LICENSE']
+  spec.require_path  = 'lib'
 
   spec.required_ruby_version = '>= 2.0'
 

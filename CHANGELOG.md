@@ -4,8 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## Unreleased
-[Diff](https://github.com/epistrephein/rarbg/compare/v1.4.0...master)
+## 2.0.0 - 2020-01-22
+[RubyGems](https://rubygems.org/gems/rarbg/versions/2.0.0) |
+[Release](https://github.com/epistrephein/rarbg/releases/tag/v2.0.0) |
+[Diff](https://github.com/epistrephein/rarbg/compare/v1.4.0...v2.0.0)
 
 #### Changed
 - Update Faraday to v1.0 and drop `faraday_middleware` dependency ([#17](https://github.com/epistrephein/rarbg/pull/17)).

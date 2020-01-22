@@ -6,7 +6,7 @@
 <title>
   Class: RARBG::API
   
-    &mdash; Documentation by YARD 0.9.19
+    &mdash; Documentation by YARD 0.9.20
   
 </title>
 
@@ -195,7 +195,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#conn-instance_method" title="#conn (instance method)">#<strong>conn</strong>  &#x21d2; Faraday::Connection </a>
+      <a href="#connection-instance_method" title="#connection (instance method)">#<strong>connection</strong>  &#x21d2; Faraday::Connection </a>
     
 
     
@@ -215,7 +215,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The Faraday connection object.</p>
+<p>The underlying <code>Faraday::Connection</code> object used to perform requests.</p>
 </div></span>
   
 </li>
@@ -224,7 +224,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#last_request-instance_method" title="#last_request (instance method)">#<strong>last_request</strong>  &#x21d2; Integer </a>
+      <a href="#last_request-instance_method" title="#last_request (instance method)">#<strong>last_request</strong>  &#x21d2; Float </a>
     
 
     
@@ -282,7 +282,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#token_time-instance_method" title="#token_time (instance method)">#<strong>token_time</strong>  &#x21d2; Integer </a>
+      <a href="#token_time-instance_method" title="#token_time (instance method)">#<strong>token_time</strong>  &#x21d2; Float </a>
     
 
     
@@ -459,28 +459,24 @@
       <pre class="lines">
 
 
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54</pre>
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
-  <span class='ivar'>@conn</span> <span class='op'>=</span> <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='const'><span class='object_link'><a href="#API_ENDPOINT-constant" title="RARBG::API::API_ENDPOINT (constant)">API_ENDPOINT</a></span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conn'>conn</span><span class='op'>|</span>
-    <span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span>  <span class='symbol'>:json</span>
-    <span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_response'>response</span> <span class='symbol'>:json</span><span class='comma'>,</span> <span class='label'>content_type:</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\bjson$</span><span class='regexp_end'>/</span></span>
+  <span class='ivar'>@connection</span> <span class='op'>=</span> <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='const'><span class='object_link'><a href="#API_ENDPOINT-constant" title="RARBG::API::API_ENDPOINT (constant)">API_ENDPOINT</a></span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conn'>conn</span><span class='op'>|</span>
     <span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_response'>response</span> <span class='symbol'>:logger</span> <span class='kw'>if</span> <span class='gvar'>$VERBOSE</span>
     <span class='id identifier rubyid_conn'>conn</span><span class='period'>.</span><span class='id identifier rubyid_adapter'>adapter</span>  <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_default_adapter'>default_adapter</span>
 
@@ -504,9 +500,9 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="conn-instance_method">
+  <h3 class="signature first" id="connection-instance_method">
   
-    #<strong>conn</strong>  &#x21d2; <tt>Faraday::Connection</tt>  <span class="extras">(readonly)</span>
+    #<strong>connection</strong>  &#x21d2; <tt>Faraday::Connection</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -515,7 +511,15 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the Faraday connection object.</p>
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>For more info regarding this object refer to the <a href="https://www.rubydoc.info/gems/faraday/Faraday" target="_parent" title="Faraday documentation">Faraday documentation</a>.</p>
+</div>
+  </div>
+
+
+<p>The underlying <code>Faraday::Connection</code> object used to perform requests.</p>
 
 
   </div>
@@ -534,7 +538,7 @@
       
         &mdash;
         <div class='inline'>
-<p>the Faraday connection object.</p>
+<p>The Faraday connection object.</p>
 </div>
       
     </li>
@@ -547,15 +551,15 @@
       <pre class="lines">
 
 
-26
-27
-28</pre>
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 31</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_conn'>conn</span>
-  <span class='ivar'>@conn</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_connection'>connection</span>
+  <span class='ivar'>@connection</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -567,7 +571,7 @@
       <div class="method_details ">
   <h3 class="signature " id="last_request-instance_method">
   
-    #<strong>last_request</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+    #<strong>last_request</strong>  &#x21d2; <tt>Float</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -576,7 +580,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the monotonic timestamp of the last request performed.</p>
+<p>The monotonic timestamp of the last request performed.  Used to comply with the endpoint rate limit based on <span class='object_link'><a href="#RATE_LIMIT-constant" title="RARBG::API::RATE_LIMIT (constant)">RATE_LIMIT</a></span>.</p>
 
 
   </div>
@@ -589,13 +593,13 @@
     <li>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Float</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>the monotonic timestamp of the last request performed.</p>
+<p>The monotonic timestamp of the last request performed.</p>
 </div>
       
     </li>
@@ -608,12 +612,12 @@
       <pre class="lines">
 
 
-35
-36
-37</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_request'>last_request</span>
   <span class='ivar'>@last_request</span>
@@ -637,7 +641,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the token used for authentication.</p>
+<p>The token used for authentication.  This is generated and rate limited automatically when calling <span class='object_link'><a href="#list-instance_method" title="RARBG::API#list (method)">#list</a></span>  or <span class='object_link'><a href="#search-instance_method" title="RARBG::API#search (method)">#search</a></span>, but can also be generated forcefully using <span class='object_link'><a href="#token!-instance_method" title="RARBG::API#token! (method)">#token!</a></span>.</p>
 
 
   </div>
@@ -656,7 +660,7 @@
       
         &mdash;
         <div class='inline'>
-<p>the token used for authentication.</p>
+<p>The token used for authentication.</p>
 </div>
       
     </li>
@@ -669,12 +673,12 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token'>token</span>
   <span class='ivar'>@token</span>
@@ -689,7 +693,7 @@
       <div class="method_details ">
   <h3 class="signature " id="token_time-instance_method">
   
-    #<strong>token_time</strong>  &#x21d2; <tt>Integer</tt>  <span class="extras">(readonly)</span>
+    #<strong>token_time</strong>  &#x21d2; <tt>Float</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -698,7 +702,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the monotonic timestamp of the token request.</p>
+<p>The monotonic timestamp of the token request.  Used to compute the next required token request based on <span class='object_link'><a href="#TOKEN_EXPIRATION-constant" title="RARBG::API::TOKEN_EXPIRATION (constant)">TOKEN_EXPIRATION</a></span>.</p>
 
 
   </div>
@@ -711,13 +715,13 @@
     <li>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>Float</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>the monotonic timestamp of the token request.</p>
+<p>The monotonic timestamp of the token request.</p>
 </div>
       
     </li>
@@ -730,12 +734,12 @@
       <pre class="lines">
 
 
-32
-33
-34</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token_time'>token_time</span>
   <span class='ivar'>@token_time</span>
@@ -776,7 +780,7 @@
     
       
         <p class="example_title"><div class='inline'>
-<p>List last 100 ranked torrents in <code>Movies/x264/1080</code></p>
+<p>List last 100 ranked torrents in <code>Movies/x264/1080</code> category</p>
 </div></p>
       
       <pre class="example code"><code><span class='id identifier rubyid_rarbg'>rarbg</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../RARBG.html" title="RARBG (module)">RARBG</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="RARBG::API (class)">API</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="RARBG::API#initialize (method)">new</a></span></span>
@@ -926,7 +930,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Return torrents that match the specified parameters.</p>
+<p>Torrents that match the specified parameters.</p>
 </div>
       
     </li>
@@ -944,7 +948,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised if <code>params</code> is not an <code>Hash</code>.</p>
+<p>If <code>params</code> is not an <code>Hash</code>.</p>
 </div>
       
     </li>
@@ -958,7 +962,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised when the request fails or the endpoint responds with an error.</p>
+<p>If the request fails or the endpoint responds with an error.</p>
 </div>
       
     </li>
@@ -972,7 +976,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised on low-level connection errors (e.g. timeouts).</p>
+<p>On low-level connection errors (e.g. timeouts).</p>
 </div>
       
     </li>
@@ -985,26 +989,20 @@
       <pre class="lines">
 
 
-87
-88
-89
-90
-91
-92
-93
-94
-95</pre>
+102
+103
+104
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected params hash</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
-    <span class='label'>mode:</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>list</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>token:</span> <span class='id identifier rubyid_token?'>token?</span>
-  <span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>mode:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>list</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>token:</span> <span class='id identifier rubyid_token?'>token?</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1238,7 +1236,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Return torrents that match the specified parameters.</p>
+<p>Torrents that match the specified parameters.</p>
 </div>
       
     </li>
@@ -1256,7 +1254,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised if <code>params</code> is not an <code>Hash</code>.</p>
+<p>If <code>params</code> is not an <code>Hash</code>.</p>
 </div>
       
     </li>
@@ -1270,7 +1268,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised if no search type param is passed (among <code>string</code>, <code>imdb</code>, <code>tvdb</code>, <code>themoviedb</code>).</p>
+<p>If no search type param is passed (among <code>string</code>, <code>imdb</code>, <code>tvdb</code>, <code>themoviedb</code>).</p>
 </div>
       
     </li>
@@ -1284,7 +1282,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised when the request fails or the endpoint responds with an error.</p>
+<p>If the request fails or the endpoint responds with an error.</p>
 </div>
       
     </li>
@@ -1298,7 +1296,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Exception raised on low-level connection errors (e.g. timeouts).</p>
+<p>On low-level connection errors (e.g. timeouts).</p>
 </div>
       
     </li>
@@ -1311,26 +1309,20 @@
       <pre class="lines">
 
 
-134
-135
-136
-137
-138
-139
-140
-141
-142</pre>
+148
+149
+150
+151
+152
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search'>search</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected params hash</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
-    <span class='label'>mode:</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>search</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>token:</span> <span class='id identifier rubyid_token?'>token?</span>
-  <span class='rparen'>)</span>
+  <span class='id identifier rubyid_params'>params</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>mode:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>search</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>token:</span> <span class='id identifier rubyid_token?'>token?</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1382,7 +1374,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Return the currently valid token.</p>
+<p>The currently valid authentication token.</p>
 </div>
       
     </li>
@@ -1395,12 +1387,12 @@
       <pre class="lines">
 
 
-152
-153
-154</pre>
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/rarbg/api.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token!'>token!</span>
   <span class='id identifier rubyid_token?'>token?</span>
@@ -1415,9 +1407,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jun  5 07:42:54 2019 by
+  Generated on Wed Jan 22 11:06:01 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.19 (ruby-2.6.3).
+  0.9.20 (ruby-2.6.5).
 </div>
 
     </div>

@@ -3,9 +3,6 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
 
-Gemspec/RequiredRubyVersion:
-  Enabled: false
-
 Layout/AlignHash:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table

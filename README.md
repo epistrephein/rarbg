@@ -2,10 +2,9 @@
 [![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen)](https://rubygems.org/gems/rarbg)
 [![Build Status](https://travis-ci.org/epistrephein/rarbg.svg?branch=master)](https://travis-ci.org/epistrephein/rarbg)
 [![Dependencies](https://badges.depfu.com/badges/32877a5a58ad7eb3f5db321d85a23c1b/overview.svg)](https://depfu.com/github/epistrephein/rarbg?project_id=5845)
-[![Maintainability](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/maintainability)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/adf6a91b754bb4aaacf2/test_coverage)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/epistrephein/rarbg)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/epistrephein/rarbg)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
 [![Inline Docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
-[![Documentation](https://img.shields.io/badge/docs-yard-blue.svg)](https://epistrephein.github.io/rarbg)
 
 Ruby client for the RARBG Torrent API.
 

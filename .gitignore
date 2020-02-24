@@ -1,13 +1,3 @@
-*.gem
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/test/tmp/
-/test/version_tmp/
-/tmp/
-
 # Version specifiers
 Gemfile.lock
 gems.locked
@@ -15,30 +5,47 @@ gems.locked
 .ruby-gemset
 
 # Environment normalization
-/.bundle/
-/lib/bundler/man/
+/.bundle
+/.config
+/vendor/bundle
+/lib/bundler/man
+
+# Gems
+*.gem
+/pkg
 
 # RSpec
-/spec/reports/
-/spec/examples.txt
 .rspec_status
+/spec/reports
+/spec/examples.txt
+/coverage
 
 # Documentation cache
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+/.yardoc
+/_yardoc
+/doc
+/rdoc
 
 # Logs
 *.log
 *.log.[0-9]*
 
-# Pry
+# Temp
+/InstalledFiles
+/test/tmp
+/test/version_tmp
+/tmp
+
+# Pry/Byebug
 .pryrc
 .pry_history
+.byebug_history
 
 # RVM
 .rvmrc
+
+# RuboCop
+.rubocop-https?--*
 
 # Project specific
 apidocs_v2.txt

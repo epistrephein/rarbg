@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+[Diff](https://github.com/epistrephein/rarbg/compare/v2.0.0...master)
+
+#### Changed
+- Update RuboCop gem and Hound version to v0.80 ([#24](https://github.com/epistrephein/rarbg/pull/24)).
+
+
 ## 2.0.0 - 2020-01-22
 [RubyGems](https://rubygems.org/gems/rarbg/versions/2.0.0) |
 [Release](https://github.com/epistrephein/rarbg/releases/tag/v2.0.0) |

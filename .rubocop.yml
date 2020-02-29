@@ -3,18 +3,21 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
 
-Layout/IndentFirstArgument:
+Layout/FirstArgumentIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 90
 
 Metrics/BlockLength:
   Exclude:
@@ -26,8 +29,11 @@ Metrics/BlockLength:
 Metrics/ClassLength:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 90
+Style/HashEachMethods:
+  Enabled: true
 
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true

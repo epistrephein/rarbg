@@ -1,6 +1,8 @@
 ---
 name: Bug Report
 about: Report something that isn't working as expected.
+labels: bug
+assignees: epistrephein
 
 ---
 

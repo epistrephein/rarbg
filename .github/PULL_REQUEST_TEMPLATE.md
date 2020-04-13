@@ -15,7 +15,7 @@ A clear and concise explanation of what changes your PR introduces and why this 
 - [ ] All new and existing tests passed
 
 ###### Documentation
-- [ ] My change requires a change to the documentation
+- [ ] My changes require a change to the documentation
 - [ ] I have updated the documentation accordingly
 
 ###### Changelog

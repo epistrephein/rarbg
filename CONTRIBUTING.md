@@ -42,7 +42,7 @@ to test, validate, and document the code.
 
 ### Tools and integrations
 
-We use [RSpec](http://rspec.info/) as testing framework.  
+We use [RSpec](https://rspec.info/) as testing framework.  
 The test suite lives in the `spec` directory, and you can run it to test your
 changes with `rake spec`.
 

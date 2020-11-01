@@ -37,6 +37,7 @@ gems.locked
 /tmp
 
 # Pry/Byebug
+/.pry
 .pryrc
 .pry_history
 .byebug_history

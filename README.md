@@ -1,12 +1,35 @@
-# RARBG
-[![Gem Version](https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen)](https://rubygems.org/gems/rarbg)
-[![Build Status](https://travis-ci.com/epistrephein/rarbg.svg?branch=master)](https://travis-ci.com/epistrephein/rarbg)
-[![Dependencies](https://badges.depfu.com/badges/32877a5a58ad7eb3f5db321d85a23c1b/overview.svg)](https://depfu.com/github/epistrephein/rarbg?project_id=5845)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/epistrephein/rarbg)](https://codeclimate.com/github/epistrephein/rarbg/maintainability)
-[![Test Coverage](https://img.shields.io/codeclimate/coverage/epistrephein/rarbg)](https://codeclimate.com/github/epistrephein/rarbg/test_coverage)
-[![Inline Docs](https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master)](https://inch-ci.org/github/epistrephein/rarbg)
+<div align="center">
+  <h1>RARBG</h1>
 
-Ruby client for the RARBG Torrent API.
+  <p>Ruby client for the RARBG Torrent API.</p>
+
+  <p>
+    <a href="https://rubygems.org/gems/rarbg">RubyGems</a> —
+    <a href="https://epistrephein.github.io/rarbg/">Documentation</a>
+  </p>
+
+  <p>
+    <a href="https://rubygems.org/gems/rarbg">
+      <img src="https://img.shields.io/gem/v/rarbg.svg?colorB=brightgreen" alt="Gem Version">
+    </a>
+    <a href="https://travis-ci.com/epistrephein/rarbg">
+      <img src="https://travis-ci.com/epistrephein/rarbg.svg?branch=master" alt="Build Status">
+    </a>
+    <a href="https://depfu.com/github/epistrephein/rarbg?project_id=5845">
+      <img src="https://badges.depfu.com/badges/32877a5a58ad7eb3f5db321d85a23c1b/overview.svg" alt="Dependencies">
+    </a>
+    <br>
+    <a href="https://codeclimate.com/github/epistrephein/rarbg/maintainability">
+      <img src="https://img.shields.io/codeclimate/maintainability/epistrephein/rarbg" alt="Maintainability">
+    </a>
+    <a href="https://codeclimate.com/github/epistrephein/rarbg/test_coverage">
+      <img src="https://img.shields.io/codeclimate/coverage/epistrephein/rarbg" alt="Test Coverage">
+    </a>
+    <a href="https://inch-ci.org/github/epistrephein/rarbg">
+      <img src="https://inch-ci.org/github/epistrephein/rarbg.svg?branch=master" alt="Inline Docs">
+    </a>
+  </p>
+</div>
 
 ## Installation
 
